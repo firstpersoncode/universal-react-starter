@@ -1,0 +1,29 @@
+{
+  "name": "simple-react",
+  "version": "1.0.0",
+  "description": "setup simple react",
+  "main": "main.js",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/firstpersoncode/setup-simple-react.git"
+  },
+  "author": "Nasser",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/firstpersoncode/setup-simple-react/issues"
+  },
+  "homepage": "https://github.com/firstpersoncode/setup-simple-react#readme",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0"
+  }
+}
