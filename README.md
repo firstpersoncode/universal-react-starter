@@ -1,1 +1,1 @@
-# Setup Simpe React
+# Setup Simple React / Flux
