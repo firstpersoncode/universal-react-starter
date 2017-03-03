@@ -1,39 +1,10 @@
-import { EventEmitter } from 'events';
-import dispatcher from "./dispatcher";
-import Immutee from 'immutee';
+import { applyMiddleware, createStore } from 'redux';
+import logger from "redux-logger";
+import thunk from "redux-thunk";
+import promise from "redux-promise-middleware";
 
-class AppStore extends EventEmitter {
-  constructor() {
-    super();
-    // initial state
-    this.appState = {
-      initial: '',
-    };
-    // immutable state
-    this.immute = Immutee(this.appState);
-  }
+import reducers from "./reducers";
 
-  newTest(data) {
-    console.log(data);
-    this.immute = this.immute.set('initial', data);
-    this.emit("newTest");
-  }
+const middleware = applyMiddleware(promise(), thunk, logger());
 
-  fetch() {
-    return this.immute.done().initial;
-  }
-
-  handleAction(action) {
-    switch(action.type) {
-      case "NEW_TEST": {
-        this.newTest(action.test);
-        break;
-      }
-    }
-  }
-}
-
-const appStore = new AppStore;
-dispatcher.register(appStore.handleAction.bind(appStore));
-
-export default appStore;
+export default createStore(reducers, middleware);

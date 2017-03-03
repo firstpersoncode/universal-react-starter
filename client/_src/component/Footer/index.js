@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import ReactDOM from "react-dom";
-import * as actions from "../action.js";
+import React from 'react';
+import { connect } from 'react-redux';
+import { newTest } from './actions';
 
-export default class Footer extends Component {
+class Footer extends React.Component {
   constructor() {
     super();
     this.newTest = this.newTest.bind(this);
   }
-  
+
   newTest(e) {
     e.preventDefault();
     var text = this.refs.chat;
-    actions.newTest(text.value);
+    this.props.dispatch(newTest(text.value));
     text.value = "";
   }
 
-  render(){
+  render() {
     return (
       <div class="footer">
         <form onSubmit={this.newTest}>
@@ -26,3 +26,9 @@ export default class Footer extends Component {
     );
   }
 }
+
+export default connect((store) => {
+  return {
+    initial: store.bodyState.initial,
+  }
+})(Footer);

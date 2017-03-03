@@ -48,13 +48,18 @@
   },
   "dependencies": {
     "cors": "^2.8.1",
-    "express": "~4.14.0",
-    "flux": "^3.1.2",
-    "mongoose": "^4.8.5",
-    "morgan": "~1.7.0",
-    "pug": "~2.0.0-beta6",
+    "express": "^4.14.1",
+    "history": "^4.5.0",
+    "mongoose": "^4.8.1",
     "react": "^15.3.2",
+    "pug": "^2.0.0-beta6",
+    "react-addons-test-utils": "^15.1.0",
     "react-dom": "^15.3.2",
-    "react-transform-hmr": "^1.0.4"
+    "react-redux": "^4.4.5",
+    "react-transform-hmr": "^1.0.4",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
+    "redux-promise-middleware": "^4.1.0",
+    "redux-thunk": "^2.1.0"
   }
 }

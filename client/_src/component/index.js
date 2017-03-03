@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import Head from "./Head";
-import Body from "./Body";
-import Footer from "./Footer";
+import Head from './Head';
+import Body from './Body';
+import Footer from './Footer';
 
-export default class Layout extends Component {
-  render(){
+export default class App extends React.Component {
+  render() {
     return (
       <div>
         <Head />
