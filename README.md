@@ -1,4 +1,6 @@
 # Setup Isomorphic Javascript App
+
+## This Project is using:
 ### node.js + react.js + redux.js + express.js + mongoose(mongoDB) + modular CSS !
 
 ## Getting started :
@@ -39,6 +41,24 @@ setup-isomorphic-javascript
 		app.js // entry point
 	package.json
 	webpack.config.js // config webpack
+```
+
+#### component & container structure
+```javascript
+
+component
+	Header
+		index.js // entry component
+		style.css // styling for component
+
+container
+	Home
+		action.js // actions for dispatching store
+		constants.js // action type
+		index.js // entry container
+		reducer.js // container's reducer
+		style.css // styling for container
+	
 ```
 
 ## START development
@@ -221,21 +241,5 @@ module.exports = {
 }
 
 ```
-#### component & container structure
-```javascript
 
-// component
-
-Header
-	index.js // entry component
-	style.css // styling for component
-
-// container
-Home
-	action.js // actions for dispatching store
-	constants.js // action type
-	index.js // entry container
-	reducer.js // container's reducer
-	style.css // styling for container
-	
-```
+> *Hit me up if you have any questions regarding the project > nasser.maronie@gmail.com*
