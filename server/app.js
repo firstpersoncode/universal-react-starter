@@ -39,8 +39,9 @@ function writeBundle(savPath, srcPath) {
 writeBundle(path.resolve(__dirname, './public/javascripts/bundle.js'), path.resolve(__dirname, '../dist/bundle.js'));
 
 // app source
-app.use('/', index);
 app.use('/headers', headers);
+app.use('*', index);
+app.use('/index', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

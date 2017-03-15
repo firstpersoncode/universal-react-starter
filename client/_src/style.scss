@@ -3,6 +3,11 @@
   word-wrap: break-word;
 }
 
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 a {
   text-decoration: none;
 }
@@ -68,4 +73,22 @@ footer {
   left: 0;
   padding: 10px 0;
   text-align: center;
+}
+
+nav {
+  text-align: center;
+  li {
+    display: inline-block;
+    margin: 5px;
+  }
+  a {
+    padding: 10px;
+    display: inline-block;
+    background: #eee;
+
+    &:hover {
+      background: #fff;
+      color: #111;
+    }
+  }
 }

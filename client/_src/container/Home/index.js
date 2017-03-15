@@ -16,7 +16,8 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(fetchHeaders())
+    if (!this.props.smallHeader.length)
+      this.props.dispatch(fetchHeaders())
   }
 
   handlePreview(e) {

@@ -6,7 +6,7 @@ import {
 } from './constants';
 
 const initialState = {
-  header: 'Simple Setup Isomorphic javascript App',
+  header: '',
   smallHeader: [],
   error: null,
 };
