@@ -26,7 +26,6 @@ setup-isomorphic-javascript
 			container // smart component connected with redux store
 			reducers.js // config reducer
 			routers.js // config router
-			GlobalStyle.css // styling for global
 		App // layout + provider
 		index.html
 		index.js // entry point
@@ -41,6 +40,7 @@ setup-isomorphic-javascript
 		app.js // entry point
 	package.json
 	webpack.config.js // config webpack
+	public //static files
 ```
 
 #### component & container structure
@@ -202,7 +202,8 @@ module.exports = {
 	entry: './client/index.js',
 	output: {
 		path: path.resolve(__dirname, './dist/'),
-		filename: 'bundle.js'
+		filename: 'bundle.js',
+		publicPath: '/'
 	},
 	devServer: {
 		inline: true,
