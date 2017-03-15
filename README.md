@@ -75,12 +75,15 @@ npm run start
 config for routing, import component and set its path.
 
 ```javascript
-import Home from "./container/Home";
+import Profile from "./container/Profile";
 import About from "./container/About";
 
 export default [{
   path: '/about',
   component: About,
+}, {
+  path: '/profile',
+  component: Profile,
 }];
 ```
 
@@ -104,21 +107,20 @@ export default combineReducers({
 exporting all schemas created in ```/server/db/model``` directory.
 ```javascript
 const mongoose = require('mongoose');
-const Headers = require('./headersSchema')(mongoose);
+const Headers = require('./headersSchema');
 module.exports = {
   Headers,
 };
 ```
 ```javascript
 // sample schema
-module.exports = (mongoose) => {
-  const headersSchema = mongoose.Schema({
-    data: String,
-  });
-  const Headers = mongoose.model('Headers', headersSchema);
+const mongoose = require('mongoose');
+const headersSchema = mongoose.Schema({
+  data: String,
+});
+const Headers = mongoose.model('Headers', headersSchema);
 
-  return Headers;
-};
+module.exports = Headers;
 ```
 
 #### config API
