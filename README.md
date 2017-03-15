@@ -16,6 +16,32 @@ Install the module packages
 npm install
 ```
 
+***Project Structure***
+```javascript
+setup-isomorphic-javascript
+	client
+		 _src
+ 			component // dumb component
+			container // smart component connected with redux
+			reducers.js // config reducer
+			routers.js // config router
+			style.scss // styling
+		utils
+		index.html
+		index.js // entry point
+	server
+		bin
+		db
+			model // schemas
+			index.js // config db
+		public // static files
+		routes // source router
+		views // jade files
+		app.js // entry point
+	package.json
+	webpack.config.js // config webpack
+```
+
 ## START development
 
 client-side :
