@@ -1,6 +1,6 @@
 # Setup Isomorphic Javascript App
 ### node.js + react.js + redux.js + express.js + mongoDB !
-
+#### modular css !
 
 ## Getting started :
 * Open your ```shell``` that has been set up for using node.js.
@@ -21,12 +21,12 @@ npm install
 setup-isomorphic-javascript
 	client
 		 _src
- 			component // dumb component
-			container // smart component connected with redux
+ 			component // dumb component (stateless component)
+			container // smart component connected with redux store
 			reducers.js // config reducer
 			routers.js // config router
-			style.scss // styling
-		utils
+			GlobalStyle.css // styling for global
+		App // layout + provider
 		index.html
 		index.js // entry point
 	server
@@ -80,9 +80,6 @@ import Home from "./container/Home";
 import About from "./container/About";
 
 export default [{
-  path: '/home',
-  component: Home,
-}, {
   path: '/about',
   component: About,
 }];
@@ -188,7 +185,7 @@ module.exports = {
 	},
 	devServer: {
 		inline: true,
-		port: 8080,
+		port: 50044,
 		historyApiFallback: true
 	},
 	module: {
@@ -207,14 +204,10 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.scss$/,
+				test: /\.css$/,
 				exclude: /node_modules/,
-				loaders: [ 
-				    'style-loader', 
-				    'css-loader?sourceMap', 
-				    'sass-loader?sourceMap' 
-			    ]
-			}
+				loader: 'style-loader!css-loader?sourceMap&modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
+			},
 		]
 	},
 	plugins: [
@@ -226,4 +219,22 @@ module.exports = {
 	]
 }
 
+```
+#### component & container structure
+```javascript
+
+// component
+
+Header
+	index.js // entry component
+	style.css // styling for component
+
+// container
+Home
+	action.js // actions for dispatching store
+	constants.js // action type
+	index.js // entry container
+	reducer.js // container's reducer
+	style.css // styling for container
+	
 ```
