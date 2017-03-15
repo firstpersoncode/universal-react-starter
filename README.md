@@ -4,7 +4,7 @@
 
 ## Getting started :
 * Open your ```shell``` that has been set up for using node.js.
-* clone repo
+* clone repo ```git clone https://github.com/firstpersoncode/setup-isomorphic-javascript.git```
 
 Go to project's directory
 ```shell
