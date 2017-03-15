@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
-import Router from "./router";
+import Layout from "./layout";
 
 
 class RenderLayout extends Component {
@@ -12,7 +12,7 @@ class RenderLayout extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router />
+        <Layout />
       </Provider>
     )
   }

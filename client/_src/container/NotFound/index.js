@@ -3,17 +3,14 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import styles from './style.css';
 
-class About extends Component {
+class NotFound extends Component {
   render() {
     return (
       <div>
         <Helmet
-          meta={[
-            {name: "description", content: "Isomorphic javascript app"}
-          ]}
-          title="About" />
+          title="404 not found" />
         <div class={styles.container}>
-          <h2>Isomorphic Javascript App</h2>
+          <h2 style={{color: "#FFF"}}>Page Not Found :(</h2>
         </div>
       </div>
     );
@@ -22,4 +19,4 @@ class About extends Component {
 
 export default connect((store) => {
   return {}
-})(About);
+})(NotFound);

@@ -1,0 +1,16 @@
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 50px;
+  margin: 10px 0;
+}
+
+.header span {
+  padding: 10px;
+  background: #eee;
+  border-radius: 3px;
+  margin: 5px;
+  display: inline-block;
+}

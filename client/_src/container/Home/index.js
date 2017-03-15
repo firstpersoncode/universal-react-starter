@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Helmet from "react-helmet";
 import { setHeader, fetchHeaders } from './actions';
 import Header from '../../component/Header';
 import PreviewBox from '../../component/PreviewBox';
 import Form from '../../component/Form';
+import styles from './style.css';
 
 class Home extends Component {
   constructor() {
@@ -34,8 +36,12 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <Helmet
+          meta={[
+            {name: "description", content: "Isomorphic javascript app"}
+          ]} />
         <Header header={this.props.header} smallHeader={this.props.smallHeader} />
-        <div class="container">
+        <div class={styles.container}>
           <PreviewBox preview={this.state.preview} />
           <Form
             ref="form"

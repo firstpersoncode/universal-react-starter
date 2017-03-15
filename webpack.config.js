@@ -24,10 +24,10 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.scss$/,
+				test: /\.css$/,
 				exclude: /node_modules/,
-				loaders: [ 'style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap' ]
-			}
+				loader: 'style-loader!css-loader?sourceMap&modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
+			},
 		]
 	},
 	plugins: [

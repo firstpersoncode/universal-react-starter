@@ -1,10 +1,7 @@
-import Home from "./container/Home";
+import React from 'react';
 import About from "./container/About";
 
 export default [{
-  path: '/home',
-  component: Home,
-}, {
   path: '/about',
   component: About,
 }];

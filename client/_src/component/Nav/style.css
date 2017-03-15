@@ -1,0 +1,24 @@
+.nav {
+  text-align: center;
+}
+
+.nav ul {
+  padding-left: 0;
+}
+
+.nav li {
+  display: inline-block;
+  margin: 5px;
+}
+
+.nav a {
+  padding: 10px;
+  display: inline-block;
+  background: #eee;
+
+}
+
+.nav a:hover {
+  background: #fff;
+  color: #111;
+}
