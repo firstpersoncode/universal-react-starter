@@ -31,28 +31,22 @@ server-side :
 npm run start
 ```
 
-## Overview
----
-React is not another MVC framework, or any other kind of framework. It's just a library for rendering your views. If you're coming from the MVC world, you need to realise that React is just the 'V', part of the equation, and you need to look elsewhere when it comes to defining your 'M' and 'C'.
-- Getting Started
--- Require node.js.
--- Require mongoDB.
--- Basic knowledge on node.js (Import and Export modules, NPM).
--- Intermediate knowledge on Javascript.
--- Basic knowledge on ES6.
-
-> Use node.js for setting up React work environment, it has npm cli with lots of useful modules from many developers..
-
+#### Getting Started
+* Require node.js.
+* Require mongoDB.
+* Basic knowledge on node.js (Import and Export modules, NPM).
+* Intermediate knowledge on Javascript.
+* Basic knowledge on ES6.
 
 
 ### Let's get started
-```client/_src/component```, contains dumb React components which depend on containers for data.
-```client/_src/container```, contains React components which are connected to the redux store.
+```/client/_src/component```, contains dumb React components which depend on containers for data.
+```/client/_src/container```, contains React components which are connected to the redux store.
 ***Container components care about how things work, while components care about how things look.***
 
 
 #### config router
-```client/_src/routers.js```
+```/client/_src/routers.js```
 config for routing, import component and set its path.
 
 ```javascript
@@ -69,7 +63,7 @@ export default [{
 ```
 
 #### config reducer
-```client/_src/reducers.js```
+```/client/_src/reducers.js```
 combine all reducers created in component's folder
 ```javascript
 import { combineReducers } from 'redux';
@@ -83,8 +77,77 @@ export default combineReducers({
 });
 ```
 
+#### config database
+```/server/db/model```
+exporting all schemas created in ```/server/db/model``` directory.
+```javascript
+const mongoose = require('mongoose');
+const Headers = require('./headersSchema')(mongoose);
+module.exports = {
+  Headers,
+};
+```
+```javascript
+// sample schema
+module.exports = (mongoose) => {
+  const headersSchema = mongoose.Schema({
+    data: String,
+  });
+  const Headers = mongoose.model('Headers', headersSchema);
+
+  return Headers;
+};
+```
+
+#### config API
+```/server/app.js```
+```javascript
+const express = require('express');
+const app = express();
+const headers = require('./routes/headers');
+// app source
+app.use('/headers', headers);
+```
+```/server/source/```
+```javascript
+// sample API
+var express = require('express');
+var router = express.Router();
+const { Headers } = require('../db/model');
+
+const getHeaders = (callback) => {
+  Headers.find({}, callback)
+};
+
+const addHeaders = (header, callback) => {
+	const newHeaders = new Headers(header);
+	newHeaders.save().then((newHeaders) => {
+		callback(newHeaders);
+	})
+}
+
+router.get('/', (req, res, next) => {
+  getHeaders((err, headers) => {
+		if(err){
+			throw err;
+		}
+		res.json(headers);
+	});
+});
+
+router.post('/', (req, res, next) => {
+	const header = req.body;
+  console.log(header)
+	addHeaders(header, (newHeaders) => {
+		res.json(newHeaders);
+	});
+});
+
+module.exports = router;
+```
+
 #### config webpack
-```webpack.config.js```
+```/webpack.config.js```
 This is the file that's going to create bundle file compile all the JavaScript and the JSx, and it's also going to launch the development server.
 
 ```javascript
