@@ -6,7 +6,7 @@ import {
 } from './constants';
 
 const initialState = {
-  header: '',
+  header: 'react + react-redux + react-helmet + react-router-dom + express + mongoose + modular CSS !',
   smallHeader: [],
   error: null,
 };

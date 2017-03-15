@@ -20,11 +20,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.resolve(__dirname, '../public', 'favicon.ico')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.resolve(__dirname, '../public')));
 app.use('*', cors());
 app.use(cors());
 function writeBundle(savPath, srcPath) {
@@ -36,7 +36,7 @@ function writeBundle(savPath, srcPath) {
       });
   });
 }
-writeBundle(path.resolve(__dirname, './public/javascripts/bundle.js'), path.resolve(__dirname, '../dist/bundle.js'));
+writeBundle(path.resolve(__dirname, '../public/javascripts/bundle.js'), path.resolve(__dirname, '../dist/bundle.js'));
 
 // app source
 app.use('/headers', headers);

@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+  word-wrap: break-word;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+a {
+  text-decoration: none;
+}

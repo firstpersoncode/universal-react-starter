@@ -28,12 +28,12 @@ class Layout extends Component {
               {name: "description", content: "Isomorphic javascript app"}
             ]}
             defaultTitle="Isomorphic javascript app" />
-          <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
             {mapRoute}
             <Route component={NotFound} />
           </Switch>
+          <Nav />
           <Footer />
         </div>
       </Router>

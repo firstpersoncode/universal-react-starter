@@ -1,16 +1,51 @@
 .header {
+  position: absolute;
+  width: 100%;
+  top: 0;left: 0;
   text-align: center;
+  -webkit-animation-name: slideDown;
+          animation-name: slideDown;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 
 .header h1 {
-  font-size: 50px;
+  position: relative;
+  font-size: 30px;
   margin: 10px 0;
+  z-index: 100;
 }
 
 .header span {
   padding: 10px;
+  font-size: 12px;
   background: #eee;
   border-radius: 3px;
   margin: 5px;
   display: inline-block;
+}
+
+.latest {
+  background: yellow !important;
+}
+
+@-webkit-keyframes slideDown {
+    from {opacity: 0; top: -10%; -webkit-transform: translateY(-10%); transform: translateY(-10%)}
+    to {opacity: 1; top: 0; -webkit-transform: translateY(0); transform: translateY(0)}
+}
+
+@keyframes slideDown {
+    from {opacity: 0; top: -10%; -webkit-transform: translateY(-10%); transform: translateY(-10%)}
+    to {opacity: 1; top: 0; -webkit-transform: translateY(0); transform: translateY(0)}
+}
+
+@media (max-width: 767px) {
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .header span {
+    font-size: 10px;
+    opacity: .7;
+  }
 }
