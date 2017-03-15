@@ -1,5 +1,5 @@
 # Setup Isomorphic Javascript App
-### node.js + react.js + redux.js / flux.js + express.js !
+### node.js + react.js + redux.js + express.js !
 
 
 ## Getting started :
