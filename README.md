@@ -1,6 +1,6 @@
 # Setup Isomorphic Javascript App
 ### node.js + react.js + redux.js + express.js + mongoDB !
-#### modular css !
+### modular css !
 
 ## Getting started :
 * Open your ```shell``` that has been set up for using node.js.
