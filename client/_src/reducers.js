@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux';
+import createHistory from 'history/createBrowserHistory'
+import { routerReducer } from 'react-router-redux'
 
-import headState from "./component/Head/reducer";
-import bodyState from "./component/Body/reducer";
-import footerState from "./component/Footer/reducer";
+import homeState from "./container/Home/reducer";
 
 export default combineReducers({
-  headState,
-  bodyState,
-  footerState,
+  homeState,
+  router: routerReducer,
 });
