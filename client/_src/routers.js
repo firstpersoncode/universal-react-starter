@@ -1,4 +1,3 @@
-import Nav from "./component/Nav";
 import Home from "./container/Home";
 import About from "./container/About";
 

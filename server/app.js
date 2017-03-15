@@ -40,6 +40,9 @@ writeBundle(path.resolve(__dirname, './public/javascripts/bundle.js'), path.reso
 
 // app source
 app.use('/headers', headers);
+
+
+// server html
 app.use('*', index);
 app.use('/index', index);
 
