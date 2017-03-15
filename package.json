@@ -1,7 +1,7 @@
 {
-  "name": "simple-react",
+  "name": "setup-isomorphic-javascript",
   "version": "1.0.0",
-  "description": "setup simple react",
+  "description": "setup isomorphic javascript app",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/firstpersoncode/setup-simple-react.git"
+    "url": "https://github.com/firstpersoncode/setup-isomorphic-javascript.git"
   },
   "author": "Nasser",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/firstpersoncode/setup-simple-react/issues"
+    "url": "https://github.com/firstpersoncode/setup-isomorphic-javascript/issues"
   },
-  "homepage": "https://github.com/firstpersoncode/setup-simple-react#readme",
+  "homepage": "https://github.com/firstpersoncode/setup-isomorphic-javascript/blob/master/README.md",
   "devDependencies": {
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
