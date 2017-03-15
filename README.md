@@ -1,6 +1,7 @@
 # Setup Isomorphic Javascript App
-### node.js + react.js + redux.js / flux.js + express.js !
 
+## This Project is using:
+### node.js + react.js + redux.js + express.js + mongoose(mongoDB) + modular CSS !
 
 ## Getting started :
 * Open your ```shell``` that has been set up for using node.js.
@@ -14,6 +15,50 @@ cd to/directory/project/setup-isomorphic-javascript
 Install the module packages
 ```shell
 npm install
+```
+
+***Project Structure***
+```javascript
+setup-isomorphic-javascript
+	client
+		 _src
+ 			component // dumb component (stateless component)
+			container // smart component connected with redux store
+			reducers.js // config reducer
+			routers.js // config router
+			GlobalStyle.css // styling for global
+		App // layout + provider
+		index.html
+		index.js // entry point
+	server
+		bin
+		db
+			model // schemas
+			index.js // config db
+		public // static files
+		routes // source router
+		views // jade files
+		app.js // entry point
+	package.json
+	webpack.config.js // config webpack
+```
+
+#### component & container structure
+```javascript
+
+component
+	Header
+		index.js // entry component
+		style.css // styling for component
+
+container
+	Home
+		action.js // actions for dispatching store
+		constants.js // action type
+		index.js // entry container
+		reducer.js // container's reducer
+		style.css // styling for container
+	
 ```
 
 ## START development
@@ -50,15 +95,15 @@ npm run start
 config for routing, import component and set its path.
 
 ```javascript
-import Home from "./container/Home";
+import Profile from "./container/Profile";
 import About from "./container/About";
 
 export default [{
-  path: '/home',
-  component: Home,
-}, {
   path: '/about',
   component: About,
+}, {
+  path: '/profile',
+  component: Profile,
 }];
 ```
 
@@ -82,21 +127,20 @@ export default combineReducers({
 exporting all schemas created in ```/server/db/model``` directory.
 ```javascript
 const mongoose = require('mongoose');
-const Headers = require('./headersSchema')(mongoose);
+const Headers = require('./headersSchema');
 module.exports = {
   Headers,
 };
 ```
 ```javascript
 // sample schema
-module.exports = (mongoose) => {
-  const headersSchema = mongoose.Schema({
-    data: String,
-  });
-  const Headers = mongoose.model('Headers', headersSchema);
+const mongoose = require('mongoose');
+const headersSchema = mongoose.Schema({
+  data: String,
+});
+const Headers = mongoose.model('Headers', headersSchema);
 
-  return Headers;
-};
+module.exports = Headers;
 ```
 
 #### config API
@@ -162,7 +206,7 @@ module.exports = {
 	},
 	devServer: {
 		inline: true,
-		port: 8080,
+		port: 50044,
 		historyApiFallback: true
 	},
 	module: {
@@ -181,14 +225,10 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.scss$/,
+				test: /\.css$/,
 				exclude: /node_modules/,
-				loaders: [ 
-				    'style-loader', 
-				    'css-loader?sourceMap', 
-				    'sass-loader?sourceMap' 
-			    ]
-			}
+				loader: 'style-loader!css-loader?sourceMap&modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
+			},
 		]
 	},
 	plugins: [
@@ -201,3 +241,5 @@ module.exports = {
 }
 
 ```
+
+> *Hit me up if you have any questions regarding the project > nasser.maronie@gmail.com*
