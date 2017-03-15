@@ -31,36 +31,124 @@ server-side :
 npm run start
 ```
 
-## Overview
----
-React is not another MVC framework, or any other kind of framework. It's just a library for rendering your views. If you're coming from the MVC world, you need to realise that React is just the 'V', part of the equation, and you need to look elsewhere when it comes to defining your 'M' and 'C'.
-- Getting Started
--- Require basic knowledge on NodeJS (Import, Export modules, NPM).
--- Intermediate knowledge on Javascript.
--- Basic knowledge on ES6.
+#### Getting Started
+* Require node.js.
+* Require mongoDB.
+* Basic knowledge on node.js (Import and Export modules, NPM).
+* Intermediate knowledge on Javascript.
+* Basic knowledge on ES6.
 
-> Use nodeJS for setting up React work environment, it has npm cli with lots of useful modules from many developers.
 
 ### Let's get started
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React / Redux</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="text/javascript" src="bundle.js"></script>
-  </body>
-</html>
+```/client/_src/component```, contains dumb React components which depend on containers for data.
+```/client/_src/container```, contains React components which are connected to the redux store.
+***Container components care about how things work, while components care about how things look.***
+
+
+#### config router
+```/client/_src/routers.js```
+config for routing, import component and set its path.
+
+```javascript
+import Home from "./container/Home";
+import About from "./container/About";
+
+export default [{
+  path: '/home',
+  component: Home,
+}, {
+  path: '/about',
+  component: About,
+}];
 ```
 
-We will render our React component into ```<div id ="root"></div>```
+#### config reducer
+```/client/_src/reducers.js```
+combine all reducers created in component's folder
+```javascript
+import { combineReducers } from 'redux';
 
-**Configuration**
-“webpack.config.js”. This is the file that's going to create bundle file compile all the JavaScript and the JSx, and it's also going to launch the development server.
+import homeState from "./container/Home/reducer";
+import aboutState from "./container/About/reducer";
+
+export default combineReducers({
+  homeState,
+  aboutState,
+});
+```
+
+#### config database
+```/server/db/model```
+exporting all schemas created in ```/server/db/model``` directory.
+```javascript
+const mongoose = require('mongoose');
+const Headers = require('./headersSchema')(mongoose);
+module.exports = {
+  Headers,
+};
+```
+```javascript
+// sample schema
+module.exports = (mongoose) => {
+  const headersSchema = mongoose.Schema({
+    data: String,
+  });
+  const Headers = mongoose.model('Headers', headersSchema);
+
+  return Headers;
+};
+```
+
+#### config API
+```/server/app.js```
+```javascript
+const express = require('express');
+const app = express();
+const headers = require('./routes/headers');
+// app source
+app.use('/headers', headers);
+```
+```/server/source/```
+```javascript
+// sample API
+var express = require('express');
+var router = express.Router();
+const { Headers } = require('../db/model');
+
+const getHeaders = (callback) => {
+  Headers.find({}, callback)
+};
+
+const addHeaders = (header, callback) => {
+	const newHeaders = new Headers(header);
+	newHeaders.save().then((newHeaders) => {
+		callback(newHeaders);
+	})
+}
+
+router.get('/', (req, res, next) => {
+  getHeaders((err, headers) => {
+		if(err){
+			throw err;
+		}
+		res.json(headers);
+	});
+});
+
+router.post('/', (req, res, next) => {
+	const header = req.body;
+  console.log(header)
+	addHeaders(header, (newHeaders) => {
+		res.json(newHeaders);
+	});
+});
+
+module.exports = router;
+```
+
+#### config webpack
+```/webpack.config.js```
+This is the file that's going to create bundle file compile all the JavaScript and the JSx, and it's also going to launch the development server.
 
 ```javascript
 var path = require('path');
@@ -74,7 +162,8 @@ module.exports = {
 	},
 	devServer: {
 		inline: true,
-		port: 8080
+		port: 8080,
+		historyApiFallback: true
 	},
 	module: {
 		loaders: [
@@ -112,7 +201,3 @@ module.exports = {
 }
 
 ```
-
-This will export our configuration object. We're going to have an entry point that's going to be our index.js and the output bundle which is bundle.js.
-We set our local server inside devServer property for development using port 8080. And we set our installed loader inside our module loaders will target every js file except files inside node_modules folder, we will use ‘babel’ loader that already installed so we can use es6 in our project.
-We also have loader for scss file for styling, and it will be compiled into css file.
