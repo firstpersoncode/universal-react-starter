@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import routeConfig from '../_src/routers';
-import Home from "../_src/container/Home";
-import Nav from '../_src/component/Nav';
-import Footer from '../_src/component/Footer';
-import NotFound from "../_src/container/NotFound";
+import routeConfig from '../src/routers';
+import Home from "../src/container/Home";
+import Nav from '../src/component/Nav';
+import Footer from '../src/component/Footer';
+import NotFound from "../src/container/NotFound";
 
 class Layout extends Component {
   componentWillMount() {

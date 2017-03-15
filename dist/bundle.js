@@ -21823,7 +21823,7 @@ exports = module.exports = __webpack_require__(42)();
 
 
 // module
-exports.push([module.i, "* {\n  box-sizing: border-box;\n  word-wrap: break-word;\n}\n\nbody {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n\na {\n  text-decoration: none;\n}\n", "", {"version":3,"sources":["/./client/_src/GlobalStyle.css"],"names":[],"mappings":"AAAA;EACE,uBAAuB;EACvB,sBAAsB;CACvB;;AAED;EACE,sBAAsB;EACtB,qBAAqB;CACtB;;AAED;EACE,sBAAsB;CACvB","file":"GlobalStyle.css","sourcesContent":["* {\n  box-sizing: border-box;\n  word-wrap: break-word;\n}\n\nbody {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n\na {\n  text-decoration: none;\n}\n"],"sourceRoot":"webpack://"}]);
+exports.push([module.i, "* {\n  box-sizing: border-box;\n  word-wrap: break-word;\n}\n\nbody {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n\na {\n  text-decoration: none;\n}\n", "", {"version":3,"sources":["/./client/src/GlobalStyle.css"],"names":[],"mappings":"AAAA;EACE,uBAAuB;EACvB,sBAAsB;CACvB;;AAED;EACE,sBAAsB;EACtB,qBAAqB;CACtB;;AAED;EACE,sBAAsB;CACvB","file":"GlobalStyle.css","sourcesContent":["* {\n  box-sizing: border-box;\n  word-wrap: break-word;\n}\n\nbody {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n\na {\n  text-decoration: none;\n}\n"],"sourceRoot":"webpack://"}]);
 
 // exports
 
@@ -21837,11 +21837,11 @@ exports = module.exports = __webpack_require__(42)();
 
 
 // module
-exports.push([module.i, ".style__footer___t96If {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  left: 0;\n  padding: 10px 0;\n  text-align: center;\n}\n", "", {"version":3,"sources":["/./client/_src/component/Footer/style.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,UAAU;EACV,YAAY;EACZ,QAAQ;EACR,gBAAgB;EAChB,mBAAmB;CACpB","file":"style.css","sourcesContent":[".footer {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  left: 0;\n  padding: 10px 0;\n  text-align: center;\n}\n"],"sourceRoot":"webpack://"}]);
+exports.push([module.i, ".style__footer___2oqTy {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  left: 0;\n  padding: 10px 0;\n  text-align: center;\n}\n", "", {"version":3,"sources":["/./client/src/component/Footer/style.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,UAAU;EACV,YAAY;EACZ,QAAQ;EACR,gBAAgB;EAChB,mBAAmB;CACpB","file":"style.css","sourcesContent":[".footer {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  left: 0;\n  padding: 10px 0;\n  text-align: center;\n}\n"],"sourceRoot":"webpack://"}]);
 
 // exports
 exports.locals = {
-	"footer": "style__footer___t96If"
+	"footer": "style__footer___2oqTy"
 };
 
 /***/ }),
@@ -21853,11 +21853,11 @@ exports = module.exports = __webpack_require__(42)();
 
 
 // module
-exports.push([module.i, ".style__form___bbtwy input {\n  border: none;\n  border-radius: 5px;\n  margin: 5px 0;\n}\n\n.style__form___bbtwy input[type=\"text\"] {\n  width: 100%;\n  padding: 10px;\n  clear: both;\n}\n\n.style__form___bbtwy input[type=\"submit\"] {\n  background: #fff;\n  float: right;\n  padding: 10px 20px;;\n}\n", "", {"version":3,"sources":["/./client/_src/component/Form/style.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,mBAAmB;EACnB,cAAc;CACf;;AAED;EACE,YAAY;EACZ,cAAc;EACd,YAAY;CACb;;AAED;EACE,iBAAiB;EACjB,aAAa;EACb,mBAAmB;CACpB","file":"style.css","sourcesContent":[".form input {\n  border: none;\n  border-radius: 5px;\n  margin: 5px 0;\n}\n\n.form input[type=\"text\"] {\n  width: 100%;\n  padding: 10px;\n  clear: both;\n}\n\n.form input[type=\"submit\"] {\n  background: #fff;\n  float: right;\n  padding: 10px 20px;;\n}\n"],"sourceRoot":"webpack://"}]);
+exports.push([module.i, ".style__form___1_0MI input {\n  border: none;\n  border-radius: 5px;\n  margin: 5px 0;\n}\n\n.style__form___1_0MI input[type=\"text\"] {\n  width: 100%;\n  padding: 10px;\n  clear: both;\n}\n\n.style__form___1_0MI input[type=\"submit\"] {\n  background: #fff;\n  float: right;\n  padding: 10px 20px;;\n}\n", "", {"version":3,"sources":["/./client/src/component/Form/style.css"],"names":[],"mappings":"AAAA;EACE,aAAa;EACb,mBAAmB;EACnB,cAAc;CACf;;AAED;EACE,YAAY;EACZ,cAAc;EACd,YAAY;CACb;;AAED;EACE,iBAAiB;EACjB,aAAa;EACb,mBAAmB;CACpB","file":"style.css","sourcesContent":[".form input {\n  border: none;\n  border-radius: 5px;\n  margin: 5px 0;\n}\n\n.form input[type=\"text\"] {\n  width: 100%;\n  padding: 10px;\n  clear: both;\n}\n\n.form input[type=\"submit\"] {\n  background: #fff;\n  float: right;\n  padding: 10px 20px;;\n}\n"],"sourceRoot":"webpack://"}]);
 
 // exports
 exports.locals = {
-	"form": "style__form___bbtwy"
+	"form": "style__form___1_0MI"
 };
 
 /***/ }),
@@ -21869,11 +21869,11 @@ exports = module.exports = __webpack_require__(42)();
 
 
 // module
-exports.push([module.i, ".style__header___UCDib {\n  text-align: center;\n}\n\n.style__header___UCDib h1 {\n  font-size: 50px;\n  margin: 10px 0;\n}\n\n.style__header___UCDib span {\n  padding: 10px;\n  background: #eee;\n  border-radius: 3px;\n  margin: 5px;\n  display: inline-block;\n}\n", "", {"version":3,"sources":["/./client/_src/component/Header/style.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;CACpB;;AAED;EACE,gBAAgB;EAChB,eAAe;CAChB;;AAED;EACE,cAAc;EACd,iBAAiB;EACjB,mBAAmB;EACnB,YAAY;EACZ,sBAAsB;CACvB","file":"style.css","sourcesContent":[".header {\n  text-align: center;\n}\n\n.header h1 {\n  font-size: 50px;\n  margin: 10px 0;\n}\n\n.header span {\n  padding: 10px;\n  background: #eee;\n  border-radius: 3px;\n  margin: 5px;\n  display: inline-block;\n}\n"],"sourceRoot":"webpack://"}]);
+exports.push([module.i, ".style__header___1ayZA {\n  text-align: center;\n}\n\n.style__header___1ayZA h1 {\n  font-size: 50px;\n  margin: 10px 0;\n}\n\n.style__header___1ayZA span {\n  padding: 10px;\n  background: #eee;\n  border-radius: 3px;\n  margin: 5px;\n  display: inline-block;\n}\n", "", {"version":3,"sources":["/./client/src/component/Header/style.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;CACpB;;AAED;EACE,gBAAgB;EAChB,eAAe;CAChB;;AAED;EACE,cAAc;EACd,iBAAiB;EACjB,mBAAmB;EACnB,YAAY;EACZ,sBAAsB;CACvB","file":"style.css","sourcesContent":[".header {\n  text-align: center;\n}\n\n.header h1 {\n  font-size: 50px;\n  margin: 10px 0;\n}\n\n.header span {\n  padding: 10px;\n  background: #eee;\n  border-radius: 3px;\n  margin: 5px;\n  display: inline-block;\n}\n"],"sourceRoot":"webpack://"}]);
 
 // exports
 exports.locals = {
-	"header": "style__header___UCDib"
+	"header": "style__header___1ayZA"
 };
 
 /***/ }),
@@ -21885,11 +21885,11 @@ exports = module.exports = __webpack_require__(42)();
 
 
 // module
-exports.push([module.i, ".style__nav___B7fks {\n  text-align: center;\n}\n\n.style__nav___B7fks ul {\n  padding-left: 0;\n}\n\n.style__nav___B7fks li {\n  display: inline-block;\n  margin: 5px;\n}\n\n.style__nav___B7fks a {\n  padding: 10px;\n  display: inline-block;\n  background: #eee;\n\n}\n\n.style__nav___B7fks a:hover {\n  background: #fff;\n  color: #111;\n}\n", "", {"version":3,"sources":["/./client/_src/component/Nav/style.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;CACpB;;AAED;EACE,gBAAgB;CACjB;;AAED;EACE,sBAAsB;EACtB,YAAY;CACb;;AAED;EACE,cAAc;EACd,sBAAsB;EACtB,iBAAiB;;CAElB;;AAED;EACE,iBAAiB;EACjB,YAAY;CACb","file":"style.css","sourcesContent":[".nav {\n  text-align: center;\n}\n\n.nav ul {\n  padding-left: 0;\n}\n\n.nav li {\n  display: inline-block;\n  margin: 5px;\n}\n\n.nav a {\n  padding: 10px;\n  display: inline-block;\n  background: #eee;\n\n}\n\n.nav a:hover {\n  background: #fff;\n  color: #111;\n}\n"],"sourceRoot":"webpack://"}]);
+exports.push([module.i, ".style__nav___1ylOE {\n  text-align: center;\n}\n\n.style__nav___1ylOE ul {\n  padding-left: 0;\n}\n\n.style__nav___1ylOE li {\n  display: inline-block;\n  margin: 5px;\n}\n\n.style__nav___1ylOE a {\n  padding: 10px;\n  display: inline-block;\n  background: #eee;\n\n}\n\n.style__nav___1ylOE a:hover {\n  background: #fff;\n  color: #111;\n}\n", "", {"version":3,"sources":["/./client/src/component/Nav/style.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;CACpB;;AAED;EACE,gBAAgB;CACjB;;AAED;EACE,sBAAsB;EACtB,YAAY;CACb;;AAED;EACE,cAAc;EACd,sBAAsB;EACtB,iBAAiB;;CAElB;;AAED;EACE,iBAAiB;EACjB,YAAY;CACb","file":"style.css","sourcesContent":[".nav {\n  text-align: center;\n}\n\n.nav ul {\n  padding-left: 0;\n}\n\n.nav li {\n  display: inline-block;\n  margin: 5px;\n}\n\n.nav a {\n  padding: 10px;\n  display: inline-block;\n  background: #eee;\n\n}\n\n.nav a:hover {\n  background: #fff;\n  color: #111;\n}\n"],"sourceRoot":"webpack://"}]);
 
 // exports
 exports.locals = {
-	"nav": "style__nav___B7fks"
+	"nav": "style__nav___1ylOE"
 };
 
 /***/ }),
@@ -21901,11 +21901,11 @@ exports = module.exports = __webpack_require__(42)();
 
 
 // module
-exports.push([module.i, ".style__preview___1GAmS {\n  margin: 10px 0;\n  padding: 0;\n  font-size: 23px;\n  background: #eee;\n  border-radius: 5px;\n}\n", "", {"version":3,"sources":["/./client/_src/component/PreviewBox/style.css"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,WAAW;EACX,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;CACpB","file":"style.css","sourcesContent":[".preview {\n  margin: 10px 0;\n  padding: 0;\n  font-size: 23px;\n  background: #eee;\n  border-radius: 5px;\n}\n"],"sourceRoot":"webpack://"}]);
+exports.push([module.i, ".style__preview___2Llrh {\n  margin: 10px 0;\n  padding: 0;\n  font-size: 23px;\n  background: #eee;\n  border-radius: 5px;\n}\n", "", {"version":3,"sources":["/./client/src/component/PreviewBox/style.css"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,WAAW;EACX,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;CACpB","file":"style.css","sourcesContent":[".preview {\n  margin: 10px 0;\n  padding: 0;\n  font-size: 23px;\n  background: #eee;\n  border-radius: 5px;\n}\n"],"sourceRoot":"webpack://"}]);
 
 // exports
 exports.locals = {
-	"preview": "style__preview___1GAmS"
+	"preview": "style__preview___2Llrh"
 };
 
 /***/ }),
@@ -21917,11 +21917,11 @@ exports = module.exports = __webpack_require__(42)();
 
 
 // module
-exports.push([module.i, ".style__container___3OjZj {\n  width: 50%;\n  padding: 10px;\n  background: black;\n  position: absolute;\n  left: 0;right: 0;bottom: 50%;\n  transform: translateY(50%);\n  margin: auto;\n  text-align: center;\n  border-radius: 5px;\n  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);\n}\n\n.style__container___3OjZj h2 {\n  color: #FFF;\n}\n", "", {"version":3,"sources":["/./client/_src/container/About/style.css"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,cAAc;EACd,kBAAkB;EAClB,mBAAmB;EACnB,QAAQ,SAAS,YAAY;EAC7B,2BAA2B;EAC3B,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,yCAAyC;CAC1C;;AAED;EACE,YAAY;CACb","file":"style.css","sourcesContent":[".container {\n  width: 50%;\n  padding: 10px;\n  background: black;\n  position: absolute;\n  left: 0;right: 0;bottom: 50%;\n  transform: translateY(50%);\n  margin: auto;\n  text-align: center;\n  border-radius: 5px;\n  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);\n}\n\n.container h2 {\n  color: #FFF;\n}\n"],"sourceRoot":"webpack://"}]);
+exports.push([module.i, ".style__container___3LjiI {\n  width: 50%;\n  padding: 10px;\n  background: black;\n  position: absolute;\n  left: 0;right: 0;bottom: 50%;\n  transform: translateY(50%);\n  margin: auto;\n  text-align: center;\n  border-radius: 5px;\n  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);\n}\n\n.style__container___3LjiI h2 {\n  color: #FFF;\n}\n", "", {"version":3,"sources":["/./client/src/container/About/style.css"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,cAAc;EACd,kBAAkB;EAClB,mBAAmB;EACnB,QAAQ,SAAS,YAAY;EAC7B,2BAA2B;EAC3B,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,yCAAyC;CAC1C;;AAED;EACE,YAAY;CACb","file":"style.css","sourcesContent":[".container {\n  width: 50%;\n  padding: 10px;\n  background: black;\n  position: absolute;\n  left: 0;right: 0;bottom: 50%;\n  transform: translateY(50%);\n  margin: auto;\n  text-align: center;\n  border-radius: 5px;\n  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);\n}\n\n.container h2 {\n  color: #FFF;\n}\n"],"sourceRoot":"webpack://"}]);
 
 // exports
 exports.locals = {
-	"container": "style__container___3OjZj"
+	"container": "style__container___3LjiI"
 };
 
 /***/ }),
@@ -21933,11 +21933,11 @@ exports = module.exports = __webpack_require__(42)();
 
 
 // module
-exports.push([module.i, ".style__container___WFY03 {\n  width: 50%;\n  padding: 10px;\n  background: black;\n  position: absolute;\n  left: 0;right: 0;bottom: 50%;\n  transform: translateY(50%);\n  margin: auto;\n  text-align: center;\n  border-radius: 5px;\n  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);\n}\n", "", {"version":3,"sources":["/./client/_src/container/Home/style.css"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,cAAc;EACd,kBAAkB;EAClB,mBAAmB;EACnB,QAAQ,SAAS,YAAY;EAC7B,2BAA2B;EAC3B,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,yCAAyC;CAC1C","file":"style.css","sourcesContent":[".container {\n  width: 50%;\n  padding: 10px;\n  background: black;\n  position: absolute;\n  left: 0;right: 0;bottom: 50%;\n  transform: translateY(50%);\n  margin: auto;\n  text-align: center;\n  border-radius: 5px;\n  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);\n}\n"],"sourceRoot":"webpack://"}]);
+exports.push([module.i, ".style__container___34tVl {\n  width: 50%;\n  padding: 10px;\n  background: black;\n  position: absolute;\n  left: 0;right: 0;bottom: 50%;\n  transform: translateY(50%);\n  margin: auto;\n  text-align: center;\n  border-radius: 5px;\n  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);\n}\n", "", {"version":3,"sources":["/./client/src/container/Home/style.css"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,cAAc;EACd,kBAAkB;EAClB,mBAAmB;EACnB,QAAQ,SAAS,YAAY;EAC7B,2BAA2B;EAC3B,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,yCAAyC;CAC1C","file":"style.css","sourcesContent":[".container {\n  width: 50%;\n  padding: 10px;\n  background: black;\n  position: absolute;\n  left: 0;right: 0;bottom: 50%;\n  transform: translateY(50%);\n  margin: auto;\n  text-align: center;\n  border-radius: 5px;\n  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);\n}\n"],"sourceRoot":"webpack://"}]);
 
 // exports
 exports.locals = {
-	"container": "style__container___WFY03"
+	"container": "style__container___34tVl"
 };
 
 /***/ }),
@@ -21949,11 +21949,11 @@ exports = module.exports = __webpack_require__(42)();
 
 
 // module
-exports.push([module.i, ".style__container___3GhQq {\n  width: 50%;\n  padding: 10px;\n  background: black;\n  position: absolute;\n  left: 0;right: 0;bottom: 50%;\n  transform: translateY(50%);\n  margin: auto;\n  text-align: center;\n  border-radius: 5px;\n  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);\n}\n\n.style__container___3GhQq h2 {\n  color: #FFF;\n}\n", "", {"version":3,"sources":["/./client/_src/container/NotFound/style.css"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,cAAc;EACd,kBAAkB;EAClB,mBAAmB;EACnB,QAAQ,SAAS,YAAY;EAC7B,2BAA2B;EAC3B,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,yCAAyC;CAC1C;;AAED;EACE,YAAY;CACb","file":"style.css","sourcesContent":[".container {\n  width: 50%;\n  padding: 10px;\n  background: black;\n  position: absolute;\n  left: 0;right: 0;bottom: 50%;\n  transform: translateY(50%);\n  margin: auto;\n  text-align: center;\n  border-radius: 5px;\n  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);\n}\n\n.container h2 {\n  color: #FFF;\n}\n"],"sourceRoot":"webpack://"}]);
+exports.push([module.i, ".style__container___1dl1L {\n  width: 50%;\n  padding: 10px;\n  background: black;\n  position: absolute;\n  left: 0;right: 0;bottom: 50%;\n  transform: translateY(50%);\n  margin: auto;\n  text-align: center;\n  border-radius: 5px;\n  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);\n}\n\n.style__container___1dl1L h2 {\n  color: #FFF;\n}\n", "", {"version":3,"sources":["/./client/src/container/NotFound/style.css"],"names":[],"mappings":"AAAA;EACE,WAAW;EACX,cAAc;EACd,kBAAkB;EAClB,mBAAmB;EACnB,QAAQ,SAAS,YAAY;EAC7B,2BAA2B;EAC3B,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,yCAAyC;CAC1C;;AAED;EACE,YAAY;CACb","file":"style.css","sourcesContent":[".container {\n  width: 50%;\n  padding: 10px;\n  background: black;\n  position: absolute;\n  left: 0;right: 0;bottom: 50%;\n  transform: translateY(50%);\n  margin: auto;\n  text-align: center;\n  border-radius: 5px;\n  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);\n}\n\n.container h2 {\n  color: #FFF;\n}\n"],"sourceRoot":"webpack://"}]);
 
 // exports
 exports.locals = {
-	"container": "style__container___3GhQq"
+	"container": "style__container___1dl1L"
 };
 
 /***/ }),

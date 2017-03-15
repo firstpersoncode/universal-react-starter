@@ -40,13 +40,13 @@ npm run start
 
 
 ### Let's get started
-```/client/_src/component```, contains dumb React components which depend on containers for data.
-```/client/_src/container```, contains React components which are connected to the redux store.
+```/client/src/component```, contains dumb React components which depend on containers for data.
+```/client/src/container```, contains React components which are connected to the redux store.
 ***Container components care about how things work, while components care about how things look.***
 
 
 #### config router
-```/client/_src/routers.js```
+```/client/src/routers.js```
 config for routing, import component and set its path.
 
 ```javascript
@@ -63,7 +63,7 @@ export default [{
 ```
 
 #### config reducer
-```/client/_src/reducers.js```
+```/client/src/reducers.js```
 combine all reducers created in component's folder
 ```javascript
 import { combineReducers } from 'redux';

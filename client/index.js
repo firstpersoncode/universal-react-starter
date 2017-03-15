@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 require('file-loader?name=index.html!./index.html');
-require('./_src/GlobalStyle.css');
+require('./src/GlobalStyle.css');
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
