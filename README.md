@@ -1,6 +1,5 @@
 # Setup Isomorphic Javascript App
 
-## This Project is using:
 #### [react](https://www.npmjs.com/package/react) + [react-redux](https://www.npmjs.com/package/react-redux) + [react-helmet](https://www.npmjs.com/package/react-helmet) + [react-router-dom](https://www.npmjs.com/package/react-router-dom) + [express](https://www.npmjs.com/package/express) + [mongoose](https://www.npmjs.com/package/mongoose) + modular CSS !
 
 ## Getting started :
@@ -26,7 +25,6 @@ setup-isomorphic-javascript
 			container // smart component connected with redux store
 			reducers.js // config reducer
 			routers.js // config router
-			GlobalStyle.css // styling for global
 		App // layout + provider
 		index.html
 		index.js // entry point
@@ -41,6 +39,7 @@ setup-isomorphic-javascript
 		app.js // entry point
 	package.json
 	webpack.config.js // config webpack
+	public //static files
 ```
 
 #### component & container structure
@@ -202,7 +201,8 @@ module.exports = {
 	entry: './client/index.js',
 	output: {
 		path: path.resolve(__dirname, './dist/'),
-		filename: 'bundle.js'
+		filename: 'bundle.js',
+		publicPath: '/'
 	},
 	devServer: {
 		inline: true,
