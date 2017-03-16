@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Helmet from "react-helmet";
 import { setHeader, fetchHeaders } from './actions';
 import Header from '../../component/Header';
-import PreviewBox from '../../component/PreviewBox';
 import Form from '../../component/Form';
 import BlackBox from '../../component/BlackBox';
 import styles from './style.css';
@@ -43,7 +42,6 @@ class Home extends Component {
           ]} />
         <Header header={this.state.preview} smallHeader={this.props.smallHeader} latestHeader={this.props.header} />
         <BlackBox>
-          <PreviewBox preview={this.props.header} />
           <Form
             ref="form"
             handlePreview={this.handlePreview}

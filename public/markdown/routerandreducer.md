@@ -1,3 +1,19 @@
+### client/src/routers
+```javascript
+import React from 'react';
+import About from "./container/About";
+import Docs from "./container/Docs";
+
+export default [{
+  path: '/about',
+  component: About,
+}, {
+  path: '/documentation',
+  component: Docs,
+}];
+```
+### client/src/reducers
+```javascript
 import { combineReducers } from 'redux';
 
 import homeState from "./container/Home/reducer";
@@ -11,3 +27,4 @@ export default combineReducers({
   docsState,
   notFoundState
 });
+```

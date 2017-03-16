@@ -1,11 +1,11 @@
 import React from 'react';
 import About from "./container/About";
-import GetStart from "./container/GetStart";
+import Docs from "./container/Docs";
 
 export default [{
   path: '/about',
   component: About,
 }, {
-  path: '/get-start',
-  component: GetStart,
+  path: '/documentation',
+  component: Docs,
 }];

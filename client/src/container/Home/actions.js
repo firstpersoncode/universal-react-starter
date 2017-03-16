@@ -31,6 +31,11 @@ export function fetchHeaders() {
         type: FETCH_HEADER,
         payload: res.data
       });
+    }).catch((err) => {
+      dispatch({
+        type: SET_HEADER,
+        payload: err.stack
+      })
     });
   }
 }

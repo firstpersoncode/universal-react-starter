@@ -17139,13 +17139,25 @@ var _style2 = _interopRequireDefault(_style);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Header = function Header(props) {
+
+  var randomStyled = function randomStyled() {
+    var r = Math.floor(Math.random() * 201) - 150;
+    return {
+      transition: 'ease-out 1s',
+      transform: 'translate(' + r * 2 + 'px, ' + r * 5 + 'px) rotate(' + r * 2 + 'deg)'
+    };
+  };
+
   var mapHeader = props.smallHeader.map(function (index, i) {
     return _react2.default.createElement(
       'span',
-      { key: i },
+      {
+        style: randomStyled(),
+        key: i },
       index.data
     );
   });
+
   return _react2.default.createElement(
     'div',
     { className: _style2.default.header },
@@ -17153,6 +17165,11 @@ var Header = function Header(props) {
       'h1',
       null,
       props.header
+    ),
+    _react2.default.createElement(
+      'span',
+      { style: randomStyled(), className: _style2.default.latest },
+      props.latestHeader
     ),
     mapHeader
   );
@@ -17634,7 +17651,7 @@ var Home = function (_Component) {
         { className: _style2.default.bg },
         _react2.default.createElement(_reactHelmet2.default, {
           meta: [{ name: "description", content: "Isomorphic javascript app" }] }),
-        _react2.default.createElement(_Header2.default, { header: this.state.preview, smallHeader: this.props.smallHeader }),
+        _react2.default.createElement(_Header2.default, { header: this.state.preview, smallHeader: this.props.smallHeader, latestHeader: this.props.header }),
         _react2.default.createElement(
           _BlackBox2.default,
           null,
@@ -22040,12 +22057,13 @@ exports = module.exports = __webpack_require__(36)();
 
 
 // module
-exports.push([module.i, ".style__header___1ayZA {\n  position: absolute;\n  width: 100%;\n  top: 0;left: 0;\n  text-align: center;\n  -webkit-animation-name: style__slideDown___3n4d1;\n          animation-name: style__slideDown___3n4d1;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n}\n\n.style__header___1ayZA h1 {\n  font-size: 30px;\n  margin: 10px 0;\n}\n\n.style__header___1ayZA span {\n  padding: 10px;\n  font-size: 12px;\n  background: #eee;\n  border-radius: 3px;\n  margin: 5px;\n  display: inline-block;\n}\n\n@-webkit-keyframes style__slideDown___3n4d1 {\n    from {opacity: 0; top: -10%; -webkit-transform: translateY(-10%); transform: translateY(-10%)}\n    to {opacity: 1; top: 0; -webkit-transform: translateY(0); transform: translateY(0)}\n}\n\n@keyframes style__slideDown___3n4d1 {\n    from {opacity: 0; top: -10%; -webkit-transform: translateY(-10%); transform: translateY(-10%)}\n    to {opacity: 1; top: 0; -webkit-transform: translateY(0); transform: translateY(0)}\n}\n\n@media (max-width: 767px) {\n  .style__header___1ayZA h1 {\n    font-size: 18px;\n  }\n\n  .style__header___1ayZA span {\n    font-size: 10px;\n    opacity: .7;\n  }\n}\n", "", {"version":3,"sources":["/./client/src/component/Header/style.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,YAAY;EACZ,OAAO,QAAQ;EACf,mBAAmB;EACnB,iDAAkC;UAC1B,yCAA0B;EAClC,+BAA+B;UACvB,uBAAuB;CAChC;;AAED;EACE,gBAAgB;EAChB,eAAe;CAChB;;AAED;EACE,cAAc;EACd,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;EACnB,YAAY;EACZ,sBAAsB;CACvB;;AAED;IACI,MAAM,WAAW,CAAC,UAAU,CAAC,oCAAoC,CAAC,2BAA2B,CAAC;IAC9F,IAAI,WAAW,CAAC,OAAO,CAAC,iCAAiC,CAAC,wBAAwB,CAAC;CACtF;;AAED;IACI,MAAM,WAAW,CAAC,UAAU,CAAC,oCAAoC,CAAC,2BAA2B,CAAC;IAC9F,IAAI,WAAW,CAAC,OAAO,CAAC,iCAAiC,CAAC,wBAAwB,CAAC;CACtF;;AAED;EACE;IACE,gBAAgB;GACjB;;EAED;IACE,gBAAgB;IAChB,YAAY;GACb;CACF","file":"style.css","sourcesContent":[".header {\n  position: absolute;\n  width: 100%;\n  top: 0;left: 0;\n  text-align: center;\n  -webkit-animation-name: slideDown;\n          animation-name: slideDown;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n}\n\n.header h1 {\n  font-size: 30px;\n  margin: 10px 0;\n}\n\n.header span {\n  padding: 10px;\n  font-size: 12px;\n  background: #eee;\n  border-radius: 3px;\n  margin: 5px;\n  display: inline-block;\n}\n\n@-webkit-keyframes slideDown {\n    from {opacity: 0; top: -10%; -webkit-transform: translateY(-10%); transform: translateY(-10%)}\n    to {opacity: 1; top: 0; -webkit-transform: translateY(0); transform: translateY(0)}\n}\n\n@keyframes slideDown {\n    from {opacity: 0; top: -10%; -webkit-transform: translateY(-10%); transform: translateY(-10%)}\n    to {opacity: 1; top: 0; -webkit-transform: translateY(0); transform: translateY(0)}\n}\n\n@media (max-width: 767px) {\n  .header h1 {\n    font-size: 18px;\n  }\n\n  .header span {\n    font-size: 10px;\n    opacity: .7;\n  }\n}\n"],"sourceRoot":"webpack://"}]);
+exports.push([module.i, ".style__header___1ayZA {\n  position: absolute;\n  width: 100%;\n  top: 0;left: 0;\n  text-align: center;\n  -webkit-animation-name: style__slideDown___3n4d1;\n          animation-name: style__slideDown___3n4d1;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n}\n\n.style__header___1ayZA h1 {\n  position: relative;\n  font-size: 30px;\n  margin: 10px 0;\n  z-index: 100;\n}\n\n.style__header___1ayZA span {\n  padding: 10px;\n  font-size: 12px;\n  background: #eee;\n  border-radius: 3px;\n  margin: 5px;\n  display: inline-block;\n}\n\n.style__latest___2Nxzz {\n  background: yellow !important;\n}\n\n@-webkit-keyframes style__slideDown___3n4d1 {\n    from {opacity: 0; top: -10%; -webkit-transform: translateY(-10%); transform: translateY(-10%)}\n    to {opacity: 1; top: 0; -webkit-transform: translateY(0); transform: translateY(0)}\n}\n\n@keyframes style__slideDown___3n4d1 {\n    from {opacity: 0; top: -10%; -webkit-transform: translateY(-10%); transform: translateY(-10%)}\n    to {opacity: 1; top: 0; -webkit-transform: translateY(0); transform: translateY(0)}\n}\n\n@media (max-width: 767px) {\n  .style__header___1ayZA h1 {\n    font-size: 18px;\n  }\n\n  .style__header___1ayZA span {\n    font-size: 10px;\n    opacity: .7;\n  }\n}\n", "", {"version":3,"sources":["/./client/src/component/Header/style.css"],"names":[],"mappings":"AAAA;EACE,mBAAmB;EACnB,YAAY;EACZ,OAAO,QAAQ;EACf,mBAAmB;EACnB,iDAAkC;UAC1B,yCAA0B;EAClC,+BAA+B;UACvB,uBAAuB;CAChC;;AAED;EACE,mBAAmB;EACnB,gBAAgB;EAChB,eAAe;EACf,aAAa;CACd;;AAED;EACE,cAAc;EACd,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;EACnB,YAAY;EACZ,sBAAsB;CACvB;;AAED;EACE,8BAA8B;CAC/B;;AAED;IACI,MAAM,WAAW,CAAC,UAAU,CAAC,oCAAoC,CAAC,2BAA2B,CAAC;IAC9F,IAAI,WAAW,CAAC,OAAO,CAAC,iCAAiC,CAAC,wBAAwB,CAAC;CACtF;;AAED;IACI,MAAM,WAAW,CAAC,UAAU,CAAC,oCAAoC,CAAC,2BAA2B,CAAC;IAC9F,IAAI,WAAW,CAAC,OAAO,CAAC,iCAAiC,CAAC,wBAAwB,CAAC;CACtF;;AAED;EACE;IACE,gBAAgB;GACjB;;EAED;IACE,gBAAgB;IAChB,YAAY;GACb;CACF","file":"style.css","sourcesContent":[".header {\n  position: absolute;\n  width: 100%;\n  top: 0;left: 0;\n  text-align: center;\n  -webkit-animation-name: slideDown;\n          animation-name: slideDown;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n}\n\n.header h1 {\n  position: relative;\n  font-size: 30px;\n  margin: 10px 0;\n  z-index: 100;\n}\n\n.header span {\n  padding: 10px;\n  font-size: 12px;\n  background: #eee;\n  border-radius: 3px;\n  margin: 5px;\n  display: inline-block;\n}\n\n.latest {\n  background: yellow !important;\n}\n\n@-webkit-keyframes slideDown {\n    from {opacity: 0; top: -10%; -webkit-transform: translateY(-10%); transform: translateY(-10%)}\n    to {opacity: 1; top: 0; -webkit-transform: translateY(0); transform: translateY(0)}\n}\n\n@keyframes slideDown {\n    from {opacity: 0; top: -10%; -webkit-transform: translateY(-10%); transform: translateY(-10%)}\n    to {opacity: 1; top: 0; -webkit-transform: translateY(0); transform: translateY(0)}\n}\n\n@media (max-width: 767px) {\n  .header h1 {\n    font-size: 18px;\n  }\n\n  .header span {\n    font-size: 10px;\n    opacity: .7;\n  }\n}\n"],"sourceRoot":"webpack://"}]);
 
 // exports
 exports.locals = {
 	"header": "style__header___1ayZA",
-	"slideDown": "style__slideDown___3n4d1"
+	"slideDown": "style__slideDown___3n4d1",
+	"latest": "style__latest___2Nxzz"
 };
 
 /***/ }),

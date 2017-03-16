@@ -3,10 +3,10 @@ import styles from './style.css';
 const Header = (props) => {
 
   const randomStyled = () => {
-    const r = Math.floor(Math.random() * 201) - 150;
+    const r = Math.floor(Math.random() * 201) - 80;
     return {
       transition: 'ease-out 1s',
-      transform: `translate(${r * 2}px, ${r * 5}px) rotate(${r * 2}deg)`
+      transform: `translate(${r * 2}px, ${r * 2}px) rotate(${r * 2}deg)`
     };
   }
 
