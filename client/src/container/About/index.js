@@ -5,6 +5,16 @@ import BlackBox from '../../component/BlackBox';
 import styles from './style.css';
 
 class About extends Component {
+  constructor() {
+    super();
+    // this.drag = this.drag.bind(this);
+    // this.drag = this.drag.bind(this);
+  }
+
+  flee(e) {
+    // console.log(e.clientY, e.clientX, e.target);
+    e.target.style.transform = `translate(${e.clientX / 3}px, ${e.clientY / 3}px)`
+  }
   render() {
     return (
       <div class={styles.bg}>
@@ -13,10 +23,12 @@ class About extends Component {
             {name: "description", content: "Isomorphic javascript app"}
           ]}
           title="About" />
-        <BlackBox>
-          <h2>Isomorphic Javascript App</h2>
-          <p>Copyright © 2017 Nasser</p>
-        </BlackBox>
+        <div class={styles.flee}>
+          <BlackBox onMouseEnter={this.flee}>
+            <h2>Isomorphic Javascript App</h2>
+            <p>Copyright © 2017 Nasser</p>
+          </BlackBox>
+        </div>
       </div>
     );
   }

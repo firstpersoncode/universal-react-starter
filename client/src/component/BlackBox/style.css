@@ -14,6 +14,7 @@
           animation-name: slideUp;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
+  transition: ease-out 1s;
 }
 
 .container h2,
