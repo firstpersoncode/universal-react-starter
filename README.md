@@ -3,7 +3,6 @@
 #### [react](https://www.npmjs.com/package/react) + [react-redux](https://www.npmjs.com/package/react-redux) + [react-helmet](https://www.npmjs.com/package/react-helmet) + [react-router](https://www.npmjs.com/package/react-router) + [express](https://www.npmjs.com/package/express) + [mongoose](https://www.npmjs.com/package/mongoose) + modular CSS !
 
 ## Getting started
-* Open your `shell` that has been set up for using node.js.
 * clone repo `git clone https://github.com/firstpersoncode/setup-isomorphic-javascript.git`
 * Require node.js.
 * Require mongoDB.
