@@ -2,21 +2,26 @@
 
 #### [react](https://www.npmjs.com/package/react) + [react-redux](https://www.npmjs.com/package/react-redux) + [react-helmet](https://www.npmjs.com/package/react-helmet) + [react-router-dom](https://www.npmjs.com/package/react-router-dom) + [express](https://www.npmjs.com/package/express) + [mongoose](https://www.npmjs.com/package/mongoose) + modular CSS !
 
-## Getting started :
-* Open your ```shell``` that has been set up for using node.js.
-* clone repo ```git clone https://github.com/firstpersoncode/setup-isomorphic-javascript.git```
+## Getting started
+* Open your `shell` that has been set up for using node.js.
+* clone repo `git clone https://github.com/firstpersoncode/setup-isomorphic-javascript.git`
+* Require node.js.
+* Require mongoDB.
+* Basic knowledge on node.js (Import and Export modules, NPM).
+* Intermediate knowledge on Javascript.
+* Basic knowledge on ES6.
 
-Go to project's directory
+> Go to project's directory
 ```shell
 cd to/directory/project/setup-isomorphic-javascript
 ```
 
-Install the module packages
+> Install the module packages
 ```shell
 npm install
 ```
 
-***Project Structure***
+## Project Structure
 ```javascript
 setup-isomorphic-javascript
 	client
@@ -40,9 +45,10 @@ setup-isomorphic-javascript
 	package.json
 	webpack.config.js // config webpack
 	public //static files
+	utils // plop config
 ```
 
-#### component & container structure
+## component & container structure
 ```javascript
 
 component
@@ -74,23 +80,24 @@ server-side :
 ```shell
 npm run start
 ```
+generator:
+```shell
+npm run generator
+```
+##### *Quick guide on auto generate component or container:*
+- type `npm run generator`
+- choose component (for dumb component) or container (for smart component)
+- give it name, make sure it's ProperCase !
+- voila ~
 
-#### Getting Started
-* Require node.js.
-* Require mongoDB.
-* Basic knowledge on node.js (Import and Export modules, NPM).
-* Intermediate knowledge on Javascript.
-* Basic knowledge on ES6.
-
-
-### Let's get started
-```/client/src/component```, contains dumb React components which depend on containers for data.
-```/client/src/container```, contains React components which are connected to the redux store.
+## Let's get started
+`/client/src/component`, contains dumb React components which depend on containers for data.
+`/client/src/container`, contains React components which are connected to the redux store.
 ***Container components care about how things work, while components care about how things look.***
 
 
 #### config router
-```/client/src/routers.js```
+`/client/src/routers.js`
 config for routing, import component and set its path.
 
 ```javascript
@@ -107,7 +114,7 @@ export default [{
 ```
 
 #### config reducer
-```/client/src/reducers.js```
+`/client/src/reducers.js`
 combine all reducers created in component's folder
 ```javascript
 import { combineReducers } from 'redux';
@@ -122,7 +129,7 @@ export default combineReducers({
 ```
 
 #### config database
-```/server/db/model```
+`/server/db/model`
 exporting all schemas created in ```/server/db/model``` directory.
 ```javascript
 const mongoose = require('mongoose');
@@ -143,7 +150,7 @@ module.exports = Headers;
 ```
 
 #### config API
-```/server/app.js```
+`/server/app.js`
 ```javascript
 const express = require('express');
 const app = express();
@@ -151,7 +158,7 @@ const headers = require('./routes/headers');
 // app source
 app.use('/headers', headers);
 ```
-```/server/source/```
+`/server/source/`
 ```javascript
 // sample API
 var express = require('express');
@@ -190,7 +197,7 @@ module.exports = router;
 ```
 
 #### config webpack
-```/webpack.config.js```
+`/webpack.config.js`
 This is the file that's going to create bundle file compile all the JavaScript and the JSx, and it's also going to launch the development server.
 
 ```javascript
