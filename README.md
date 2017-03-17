@@ -1,6 +1,6 @@
 # Setup Isomorphic Javascript App
 
-#### [react](https://www.npmjs.com/package/react) + [react-redux](https://www.npmjs.com/package/react-redux) + [react-helmet](https://www.npmjs.com/package/react-helmet) + [react-router-dom](https://www.npmjs.com/package/react-router-dom) + [express](https://www.npmjs.com/package/express) + [mongoose](https://www.npmjs.com/package/mongoose) + modular CSS !
+#### [react](https://www.npmjs.com/package/react) + [react-redux](https://www.npmjs.com/package/react-redux) + [react-helmet](https://www.npmjs.com/package/react-helmet) + [react-router](https://www.npmjs.com/package/react-router) + [express](https://www.npmjs.com/package/express) + [mongoose](https://www.npmjs.com/package/mongoose) + modular CSS !
 
 ## Getting started
 * Open your `shell` that has been set up for using node.js.
