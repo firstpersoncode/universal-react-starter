@@ -1,4 +1,3 @@
-'use strict';
 const lodash = require('lodash');
 
 const isEmpty = lodash.isEmpty;
