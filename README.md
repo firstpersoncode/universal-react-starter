@@ -2,7 +2,7 @@
 
 #### [react](https://www.npmjs.com/package/react) + [react-redux](https://www.npmjs.com/package/react-redux) + [react-helmet](https://www.npmjs.com/package/react-helmet) + [react-router-dom](https://www.npmjs.com/package/react-router-dom) + [express](https://www.npmjs.com/package/express) + [mongoose](https://www.npmjs.com/package/mongoose) + modular CSS !
 
-## Getting started :
+## Getting started
 * Open your `shell` that has been set up for using node.js.
 * clone repo `git clone https://github.com/firstpersoncode/setup-isomorphic-javascript.git`
 * Require node.js.
@@ -11,17 +11,17 @@
 * Intermediate knowledge on Javascript.
 * Basic knowledge on ES6.
 
-Go to project's directory
+> Go to project's directory
 ```shell
 cd to/directory/project/setup-isomorphic-javascript
 ```
 
-Install the module packages
+> Install the module packages
 ```shell
 npm install
 ```
 
-***Project Structure***
+## Project Structure
 ```javascript
 setup-isomorphic-javascript
 	client
@@ -48,7 +48,7 @@ setup-isomorphic-javascript
 	utils // plop config
 ```
 
-#### component & container structure
+## component & container structure
 ```javascript
 
 component
@@ -90,7 +90,7 @@ npm run generator
 - give it name, make sure it's ProperCase !
 - voila ~
 
-### Let's get started
+## Let's get started
 `/client/src/component`, contains dumb React components which depend on containers for data.
 `/client/src/container`, contains React components which are connected to the redux store.
 ***Container components care about how things work, while components care about how things look.***
