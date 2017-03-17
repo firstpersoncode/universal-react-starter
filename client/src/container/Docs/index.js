@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import Markdown from 'react-markdown-to-html';
 import BlackBox from '../../component/BlackBox';
+import Loading from '../../component/Loading';
 import styles from './style.css';
 
 class Docs extends Component {
@@ -13,21 +14,40 @@ class Docs extends Component {
     };
   }
 
-  showHide(opt) {
-    setTimeout(() => {
-      this.refs[opt.opt].style.transform = "translateX(0)";
-    }, 2000)
-    return opt.rest.map((index) => {
-      this.refs[index].style.transform = "translateX(110%)";
-      setTimeout(() => {
-        this.refs[opt.opt].style.display = "block";
-        this.refs[index].style.display = "none";
-      }, 1000)
-    });
-  }
+
 
   render() {
-    console.log(this.props)
+    const showHide = (opt) => {
+      this.refs.loading.style.opacity = "1";
+      setTimeout(() => {
+        this.refs.markdown.style.overflowY = "auto";
+        this.refs[opt.opt].style.display = "block";
+        this.refs.loading.style.opacity = "0";
+        setTimeout(() => this.refs[opt.opt].style.opacity = "1", 500)
+      }, 2000)
+      return opt.rest.map((index) => {
+        this.refs.markdown.style.overflowY = "hidden";
+        this.refs[index].style.transform = "translateX(110%)";
+        setTimeout(() => {
+          this.refs[opt.opt].style.opacity = "0";
+          setTimeout(() => this.refs[index].style.display = "none", 500)
+          this.refs[opt.opt].style.transform = "translateX(0)";
+        }, 1000)
+      });
+    };
+
+    const options = (opt, optLength) => {
+      let rest = [];
+      for (let i = 1; i <= optLength; i++) {
+        if (i === opt) {continue}
+        rest.push("doc-"+i)
+      }
+      return {
+        opt: "doc-"+opt,
+        rest
+      }
+    };
+
     return (
       <div class={styles.bg}>
         <Helmet
@@ -37,16 +57,19 @@ class Docs extends Component {
           title="Docs" />
         <BlackBox>
           <ul class={styles.navOpt}>
-            <li><button onClick={this.showHide.bind(this, {opt: "doc-1", rest: ["doc-2", "doc-3", "doc-4", "doc-5", "doc-6", "doc-7"]})}>Overview</button></li>
-            <li><button onClick={this.showHide.bind(this, {opt: "doc-2", rest: ["doc-1", "doc-3", "doc-4", "doc-5", "doc-6", "doc-7"]})}>Components</button></li>
-            <li><button onClick={this.showHide.bind(this, {opt: "doc-3", rest: ["doc-1", "doc-2", "doc-4", "doc-5", "doc-6", "doc-7"]})}>Home Container</button></li>
-            <li><button onClick={this.showHide.bind(this, {opt: "doc-4", rest: ["doc-1", "doc-2", "doc-3", "doc-5", "doc-6", "doc-7"]})}>About Container</button></li>
-            <li><button onClick={this.showHide.bind(this, {opt: "doc-5", rest: ["doc-1", "doc-2", "doc-3", "doc-4", "doc-6", "doc-7"]})}>NotFound Container</button></li>
-            <li><button onClick={this.showHide.bind(this, {opt: "doc-6", rest: ["doc-1", "doc-2", "doc-3", "doc-4", "doc-5", "doc-7"]})}>Router Configs & Combine Reducers</button></li>
-            <li><button onClick={this.showHide.bind(this, {opt: "doc-7", rest: ["doc-1", "doc-2", "doc-3", "doc-4", "doc-5", "doc-6"]})}>App Booster</button></li>
+            <li><button onClick={showHide.bind(this, options(1, 7))}>Overview</button></li>
+            <li><button onClick={showHide.bind(this, options(2, 7))}>Components</button></li>
+            <li><button onClick={showHide.bind(this, options(3, 7))}>Home Container</button></li>
+            <li><button onClick={showHide.bind(this, options(4, 7))}>About Container</button></li>
+            <li><button onClick={showHide.bind(this, options(5, 7))}>NotFound Container</button></li>
+            <li><button onClick={showHide.bind(this, options(6, 7))}>Router Configs & Combine Reducers</button></li>
+            <li><button onClick={showHide.bind(this, options(7, 7))}>App Booster</button></li>
           </ul>
           <h2>{this.state.title}</h2>
-          <div class={styles.markdown}>
+          <div class={styles.markdown} ref="markdown">
+            <div class={styles.loading} ref="loading">
+              <Loading />
+            </div>
             <div ref="doc-1">
               <Markdown src="./public/markdown/overview.md" />
             </div>

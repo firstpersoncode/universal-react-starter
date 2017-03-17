@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router';
 import Helmet from 'react-helmet';
+import createBrowserHistory from 'history/createBrowserHistory'
 import routeConfig from '../routers';
 import Home from "../container/Home";
 import Nav from '../component/Nav';
 import Footer from '../component/Footer';
 import NotFound from "../container/NotFound";
+
+const history = createBrowserHistory()
 
 class Layout extends Component {
   componentWillMount() {
@@ -17,14 +20,14 @@ class Layout extends Component {
 
     const mapRoute = routeConfig.map((index, i) => {
       return (
-          <Route key={i} {...index} onEnter={() => console.log(index.path)}/>
+          <Route key={i} {...index} />
       )
     })
     return (
-      <Router>
-        <div>
-          <Helmet
-            meta={[
+        <Router history={history}>
+         <div>
+           <Helmet
+             meta={[
               {name: "description", content: "Isomorphic javascript app"}
             ]}
             defaultTitle="Isomorphic javascript app" />

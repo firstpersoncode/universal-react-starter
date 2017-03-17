@@ -7,7 +7,18 @@
   overflow: hidden;
 }
 
+.loading {
+  position: absolute;
+  left: 0;top: 0;right: 0;bottom: 0;
+  margin: auto;
+  width: 100%;
+  opacity: 0;
+  /*pointer-events: none;*/
+  transition: ease-out 1s;
+}
+
 .markdown {
+  position: relative;
   background: #FFF;
   text-align: left;
   padding: 10px;
@@ -16,8 +27,8 @@
   overflow-x: hidden;
 }
 
-.markdown > div {
-  transform: translateX(110%);
+.markdown > div:not(.loading) {
+  transform: translateX(0);
   transition: ease-out 1s;
 }
 
