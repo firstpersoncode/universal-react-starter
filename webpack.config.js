@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
 	entry: './client/index.js',
 	output: {
-		path: path.resolve(__dirname, './dist/'),
+		path: path.resolve(__dirname, './public/javascripts/'),
 		filename: 'bundle.js',
 		publicPath: '/'
 	},
@@ -31,11 +31,5 @@ module.exports = {
 			},
 		]
 	},
-	plugins: [
-		new webpack.DefinePlugin({
-    	'process.env': {
-      	'NODE_ENV': process.env.NODE_ENV
-    	}
-  	})
-	]
+	plugins: []
 }
