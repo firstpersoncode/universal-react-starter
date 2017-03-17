@@ -9,5 +9,5 @@ export default combineReducers({
   homeState,
   aboutState,
   docsState,
-  notFoundState
+  notFoundState,
 });

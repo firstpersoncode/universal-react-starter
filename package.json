@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "DEBUG=simpleReact:* && node ./server/bin/www",
     "dev": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "generator": "cd ./utils && plop"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "style-loader": "^0.13.1",
     "webpack": "^2.1.0-beta.24",
     "webpack-dev-middleware": "^1.10.1",
+    "webpack-dev-server": "^2.4.2",
     "webpack-hot-middleware": "^2.17.1"
   },
   "dependencies": {
@@ -53,7 +55,9 @@
     "cors": "^2.8.1",
     "express": "^4.14.1",
     "history": "^4.5.0",
+    "lodash": "^4.17.4",
     "mongoose": "^4.8.1",
+    "plop": "^1.7.4",
     "pug": "^2.0.0-beta6",
     "react": "^15.3.2",
     "react-addons-test-utils": "^15.1.0",

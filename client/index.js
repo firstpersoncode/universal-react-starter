@@ -3,7 +3,7 @@ require('file-loader?name=index.html!./index.html');
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './src/App';
 
 
 const dom = document.getElementById('root');
