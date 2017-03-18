@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import styles from './main.scss';
 require('file-loader?name=index.html!./index.html');
 
 import React, { Component } from 'react';
