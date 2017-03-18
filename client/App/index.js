@@ -6,7 +6,6 @@ import Layout from "./layout";
 
 class RenderLayout extends Component {
   render() {
-    console.log(this.props)
     return (
       <Provider store={store}>
         <Layout />
