@@ -1,0 +1,19 @@
+.form {
+  input {
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+
+    &[type="text"] {
+      width: 100%;
+      padding: 10px;
+      clear: both;
+    }
+
+    &[type="submit"] {
+      background: #fff;
+      float: right;
+      padding: 10px 20px;;
+    }
+  }
+}

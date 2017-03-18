@@ -1,0 +1,28 @@
+.nav {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  bottom: 40px;
+  width: 100%;
+
+  ul {
+    padding-left: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin: 5px;
+  }
+
+  a {
+    padding: 10px;
+    display: inline-block;
+    background: #eee;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+
+    &:hover {
+      background: none;
+      color: #111;
+    }
+  }
+}

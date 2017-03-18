@@ -1,7 +1,7 @@
 ### client/src/component/BlackBox
 ```javascript
 import React from 'react';
-import styles from './style.css';
+import styles from './style.scss';
 const BlackBox = (props) => {
 
   return (
@@ -16,7 +16,7 @@ export default BlackBox;
 ### client/src/component/Form
 ```javascript
 import React, { Component } from 'react';
-import styles from './style.css';
+import styles from './style.scss';
 class Form extends Component {
   render() {
     return (
@@ -36,7 +36,7 @@ export default Form;
 ### client/src/component/Header
 ```javascript
 import React from 'react';
-import styles from './style.css';
+import styles from './style.scss';
 const Header = (props) => {
 
   const randomStyled = () => {
@@ -72,7 +72,7 @@ export default Header;
 ```javascript
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './style.css';
+import styles from './style.scss';
 const Nav = (props) => {
   return (
     <nav class={styles.nav}>
@@ -90,7 +90,7 @@ export default Nav;
 ### client/src/component/Footer
 ```javascript
 import React from 'react';
-import styles from './style.css';
+import styles from './style.scss';
 const Footer = (props) => {
 
   return (

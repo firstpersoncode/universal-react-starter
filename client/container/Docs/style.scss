@@ -1,0 +1,101 @@
+.bg {
+  position: absolute;
+  left: 0;right: 0;top: 0;bottom: 0;
+  z-index: -1;
+  box-shadow: inset 0 -100px 250px 50px rgba(0,0,0,0.3);
+  background: green;
+  overflow: hidden;
+}
+
+.loading {
+  position: absolute;
+  left: 0;top: 0;right: 0;bottom: 0;
+  margin: auto;
+  width: 100%;
+  opacity: 0;
+  /*pointer-events: none;*/
+  transition: ease-out 1s;
+}
+
+.markdown {
+  position: relative;
+  background: #FFF;
+  text-align: left;
+  padding: 10px;
+  height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  > div:not(.loading) {
+    transform: translateX(0);
+    transition: ease-out 1s;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-size: 18px;
+  }
+
+  pre {
+    padding: 10px;
+    background: #fcf7d1;
+    font-size: 15px;
+    color: #777;
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+
+    code {
+      background: none;
+    }
+  }
+
+  code {
+    display: inline-block;
+    padding: 5px;
+    background: #EEE;
+  }
+
+  p {
+    color: #111;
+  }
+}
+
+
+
+.navOpt {
+  border-radius: 10px;
+  overflow: hidden;
+  padding-left: 0;
+  width: 100%;
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  align-content: stretch;
+  position: absolute;
+  left: 0;
+  top:-45px;
+
+  li {
+    button{
+      height: 100%;
+      border: none;
+      background: #000;
+      color: #FFF;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 10px;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background: #FFF;
+        color: #111;
+      }
+    }
+  }
+}

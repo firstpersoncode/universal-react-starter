@@ -16075,11 +16075,6 @@ var RenderLayout = function (_Component) {
 
   _createClass(RenderLayout, [{
     key: 'render',
-
-    // componentWillMount() {
-    //   this.forceUpdate(); // a little hack to help us re-render when this module is hot reloaded
-    // }
-
     value: function render() {
       console.log(this.props);
       return _react2.default.createElement(
@@ -17057,12 +17052,6 @@ var Layout = function (_Component) {
 
   _createClass(Layout, [{
     key: 'render',
-
-    // componentWillMount() {
-    //   // a little hack to help us rerender when this module is reloaded
-    //   this.forceUpdate()
-    // }
-
     value: function render() {
 
       var mapRoute = _routers2.default.map(function (index, i) {
@@ -65764,7 +65753,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 __webpack_require__(235);
 
 var dom = document.getElementById('root');
-_reactDom2.default.render(_react2.default.createElement(_App2.default, window.__APP_INITIAL_STATE__), dom);
+_reactDom2.default.render(_react2.default.createElement(_App2.default, null), dom);
 
 /***/ })
 /******/ ]);

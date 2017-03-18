@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import {
   defaultAction,
 } from './actions.js';
-import styles from './style.css';
+import styles from './style.scss';
 
 class NotFound extends Component {
   render() {

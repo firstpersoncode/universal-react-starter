@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "DEBUG=simpleReact:* && node ./server/bin/www",
+    "start": "DEBUG=simpleReact:* && node ./server/app.js",
     "dev": "webpack-dev-server",
     "build": "webpack",
     "generator": "cd ./utils && plop"
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/firstpersoncode/setup-isomorphic-javascript/blob/master/README.md",
   "devDependencies": {
+    "babel-cli": "^6.24.0",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-react-html-attrs": "^2.0.0",
@@ -36,20 +37,27 @@
     "cookie-parser": "~1.4.3",
     "css-loader": "^0.25.0",
     "debug": "~2.2.0",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.9.0",
     "immutee": "^1.0.1",
+    "json-loader": "^0.5.4",
     "node-fs-extra": "^0.8.1",
     "querystring": "^0.2.0",
     "react-addons-test-utils": "^15.1.0",
     "react-hot-loader": "^1.3.1",
+    "node-sass": "^4.3.0",
+    "postcss-loader": "^1.2.2",
+    "sass-loader": "^4.1.1",
+    "autoprefixer": "^6.6.1",
     "react-markdown-to-html": "^1.0.11",
     "request": "^2.79.0",
     "serve-favicon": "~2.3.0",
     "style-loader": "^0.13.1",
-    "webpack": "^2.1.0-beta.24",
+    "webpack": "^2.2.0-rc.3",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-dev-server": "^2.4.2",
-    "webpack-hot-middleware": "^2.17.1"
+    "webpack-hot-middleware": "^2.17.1",
+    "webpack-node-externals": "^1.5.4"
   },
   "dependencies": {
     "axios": "^0.15.3",

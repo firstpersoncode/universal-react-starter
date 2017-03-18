@@ -40,8 +40,8 @@ module.exports = function (plop) {
             },
             {
                 type: 'add',
-                path: '../client/src/component/{{properCase name}}/style.css',
-                templateFile: 'templates/component/style.css.hbs'
+                path: '../client/src/component/{{properCase name}}/style.scss',
+                templateFile: 'templates/component/style.scss.hbs'
             },
         ]
     });
@@ -84,8 +84,8 @@ module.exports = function (plop) {
             },
             {
                 type: 'add',
-                path: '../client/src/container/{{properCase name}}/style.css',
-                templateFile: 'templates/container/style.css.hbs'
+                path: '../client/src/container/{{properCase name}}/style.scss',
+                templateFile: 'templates/container/style.scss.hbs'
             }
         ]
     });

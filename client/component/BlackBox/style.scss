@@ -1,0 +1,39 @@
+.container {
+  width: 50%;
+  padding: 10px;
+  background: black;
+  position: absolute;
+  left: 0;right: 0;bottom:50%;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+  margin: auto;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
+  -webkit-animation-name: slideUp;
+          animation-name: slideUp;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  transition: ease-out 1s;
+  h2,
+  p {
+    color: #FFF;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .container {
+    width: 95%;
+  }
+}
+
+@-webkit-keyframes slideUp {
+    from {opacity: 0; bottom: 0%; -webkit-transform: translateY(0%); transform: translateY(0%)}
+    to {opacity: 1; bottom: 50%; -webkit-transform: translateY(50%); transform: translateY(50%)}
+}
+
+@keyframes slideUp {
+    from {opacity: 0; bottom: 0%; -webkit-transform: translateY(0%); transform: translateY(0%)}
+    to {opacity: 1; bottom: 50%; -webkit-transform: translateY(50%); transform: translateY(50%)}
+}

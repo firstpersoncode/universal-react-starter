@@ -7,7 +7,7 @@ import { setHeader, fetchHeaders } from './actions';
 import Header from '../../component/Header';
 import Form from '../../component/Form';
 import BlackBox from '../../component/BlackBox';
-import styles from './style.css';
+import styles from './style.scss';
 
 class Home extends Component {
   constructor() {
