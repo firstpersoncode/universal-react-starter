@@ -10,11 +10,6 @@ import NotFound from "../container/NotFound";
 const history = createBrowserHistory()
 
 class Layout extends Component {
-  componentWillMount() {
-    // a little hack to help us rerender when this module is reloaded
-    this.forceUpdate()
-  }
-
   render() {
 
     const mapRoute = routeConfig.map((index, i) => {

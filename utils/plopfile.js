@@ -35,12 +35,12 @@ module.exports = function (plop) {
             },
             {
                 type: 'add',
-                path: '../client/src/component/{{properCase name}}/index.js',
+                path: '../client/component/{{properCase name}}/index.js',
                 templateFile: 'templates/component/index.js.hbs'
             },
             {
                 type: 'add',
-                path: '../client/src/component/{{properCase name}}/style.scss',
+                path: '../client/component/{{properCase name}}/style.scss',
                 templateFile: 'templates/component/style.scss.hbs'
             },
         ]
@@ -64,27 +64,27 @@ module.exports = function (plop) {
             },
             {
                 type: 'add',
-                path: '../client/src/container/{{properCase name}}/index.js',
+                path: '../client/container/{{properCase name}}/index.js',
                 templateFile: 'templates/container/index.js.hbs'
             },
             {
                 type: 'add',
-                path: '../client/src/container/{{properCase name}}/actions.js',
+                path: '../client/container/{{properCase name}}/actions.js',
                 templateFile: 'templates/container/actions.js.hbs'
             },
             {
                 type: 'add',
-                path: '../client/src/container/{{properCase name}}/constants.js',
+                path: '../client/container/{{properCase name}}/constants.js',
                 templateFile: 'templates/container/constants.js.hbs'
             },
             {
                 type: 'add',
-                path: '../client/src/container/{{properCase name}}/reducer.js',
+                path: '../client/container/{{properCase name}}/reducer.js',
                 templateFile: 'templates/container/reducer.js.hbs'
             },
             {
                 type: 'add',
-                path: '../client/src/container/{{properCase name}}/style.scss',
+                path: '../client/container/{{properCase name}}/style.scss',
                 templateFile: 'templates/container/style.scss.hbs'
             }
         ]
