@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
+import { Headers } from '../db/model';
 const router = express.Router();
-const { Headers } = require('../db/model');
 
 const getHeaders = (callback) => {
   Headers.find({}, callback)
@@ -30,4 +30,4 @@ router.post('/', (req, res, next) => {
 	});
 });
 
-module.exports = router;
+export default router;
