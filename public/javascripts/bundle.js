@@ -17063,26 +17063,6 @@ var Layout = function (_Component) {
   return Layout;
 }(_react.Component);
 
-// class Layout extends Component {
-//   render() {
-//
-//     const mapRoute = routeConfig.map((index, i) => {
-//       return (
-//           <Route key={i} {...index} />
-//       )
-//     })
-//
-//     return (
-//       <Router history={history}>
-//         <Route path='/'>
-//           <IndexRoute component={Home} />
-//           {mapRoute}
-//         </Route>
-//       </Router>
-//     );
-//   }
-// }
-
 exports.default = Layout;
 
 /***/ }),
