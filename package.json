@@ -1,4 +1,18 @@
 {
+  "name": "universal-javascript",
+  "version": "0.0.0",
+  "description": "Universal Javascript App with React, Redux, React Router, Express, CSS/SASS Module, Mongoose, Webpack.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firstpersoncode/universal-javascript.git"
+  },
+  "keywords": [],
+  "author": "Nasser",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/firstpersoncode/universal-javascript/issues"
+  },
+  "homepage": "https://github.com/firstpersoncode/universal-javascript/blob/master/README.md",
   "scripts": {
     "start:client": "webpack-dev-server --config webpack.config.devClient.js",
     "start:server": "webpack --define process.env.NODE_ENV='\"development\"' --config webpack.config.devServer.js",
@@ -7,8 +21,7 @@
     "build:server": "webpack --define process.env.NODE_ENV='\"production\"' --config webpack.config.prodServer.js -p",
     "build": "rm -rf ./.build && npm-run-all --parallel build:client build:server",
     "start:prod": "node ./.build/app.js",
-    "clean": "node ./utils/clean.js",
-    "generator": "cd utils && plop && cd .."
+    "clean": "node ./utils/clean.js"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
