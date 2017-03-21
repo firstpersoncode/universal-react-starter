@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import store from './store';
+import { BrowserRouter as Router } from 'react-router-dom';
+import configureStore from './store';
 import Layout from "./layout";
 
+const initialState = window.INITIAL_STATE || {};
+const store = configureStore(initialState);
 
-class RenderLayout extends Component {
-  render() {
-    return (
-      <Provider store={store}>
+export default () => {
+  return (
+    <Provider store={store}>
+      <Router>
         <Layout />
-      </Provider>
-    )
-  }
+      </Router>
+    </Provider>
+  )
 }
-
-export default RenderLayout;

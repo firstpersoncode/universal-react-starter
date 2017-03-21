@@ -20,7 +20,7 @@ class About extends Component {
       <div class={styles.bg}>
         <Helmet
           meta={[
-            {name: "description", content: "Isomorphic javascript app"}
+            {name: "description", content: "About"}
           ]}
           title="About" />
         <div class={styles.flee}>

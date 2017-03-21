@@ -1,14 +1,24 @@
-import 'babel-polyfill';
-import styles from './main.scss';
-require('file-loader?name=index.html!./index.html');
-
+// require("file-loader?name=[name].[ext]!./index.html");
+import { AppContainer } from "react-hot-loader";
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import App from './App';
+import styles from './main.scss';
 
-
-const dom = document.getElementById('root');
-ReactDOM.render(
-  <App />,
-  dom
+render(
+  <AppContainer>
+    <App />
+  </AppContainer>,
+  document.getElementById('root')
 );
+
+if (module.hot) {
+  module.hot.accept("./App", () => {
+    render(
+      <AppContainer>
+        <App />
+      </AppContainer>,
+      document.getElementById("root"),
+    );
+  });
+}

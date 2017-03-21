@@ -52,7 +52,7 @@ class Docs extends Component {
       <div class={styles.bg}>
         <Helmet
           meta={[
-            {name: "description", content: "Isomorphic javascript app"}
+            {name: "description", content: "Docs"}
           ]}
           title="Docs" />
         <BlackBox>
@@ -71,25 +71,25 @@ class Docs extends Component {
               <Loading />
             </div>
             <div ref="doc-1">
-              <Markdown src="./public/markdown/overview.md" />
+              <Markdown src="markdown/overview.md" />
             </div>
             <div ref="doc-2">
-              <Markdown src="./public/markdown/dumbComponent.md" />
+              <Markdown src="markdown/dumbComponent.md" />
             </div>
             <div ref="doc-3">
-              <Markdown src="./public/markdown/smartComponent.md" />
+              <Markdown src="markdown/smartComponent.md" />
             </div>
             <div ref="doc-4">
-              <Markdown src="./public/markdown/smartComponent2.md" />
+              <Markdown src="markdown/smartComponent2.md" />
             </div>
             <div ref="doc-5">
-              <Markdown src="./public/markdown/smartComponent3.md" />
+              <Markdown src="markdown/smartComponent3.md" />
             </div>
             <div ref="doc-6">
-              <Markdown src="./public/markdown/routerandreducer.md" />
+              <Markdown src="markdown/routerandreducer.md" />
             </div>
             <div ref="doc-7">
-              <Markdown src="./public/markdown/app.md" />
+              <Markdown src="markdown/app.md" />
             </div>
           </div>
         </BlackBox>

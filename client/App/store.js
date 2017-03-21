@@ -4,6 +4,25 @@ import thunk from "redux-thunk";
 import promise from "redux-promise-middleware";
 import reducers from "../reducers";
 
-const middleware = applyMiddleware(promise(), thunk, logger());
+const middlewares = [
+  promise(),
+  thunk,
+  logger()
+];
 
-export default createStore(combineReducers(reducers), middleware);
+const createStoreWithMiddleWare = applyMiddleware(
+  ...middlewares
+)(createStore);
+
+export default (initialState) => {
+  const store = createStoreWithMiddleWare(combineReducers(reducers), initialState);
+
+  if (module.hot) {
+    module.hot.accept('../reducers', () => {
+      const nextReducer = combineReducers(require('../reducers'));
+      store.replaceReducer(nextReducer)
+    })
+  }
+
+  return store;
+}
