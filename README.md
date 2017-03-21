@@ -1,4 +1,4 @@
-# Universal Javascript
+# Universal Javascript Starter
 ---
 **Packed with:**
 ## [React](https://facebook.github.io/react)
