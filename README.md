@@ -10,14 +10,8 @@
 ## [Immutee](https://github.com/diruuu/immutee)
 
 ### modular css/sass + plop generator + hot reload + server side rendering !
-
+---
 ### Let's get started
-
-`/client/component`, contains dumb React components which depend on containers for data.
-
-`/client/container`, contains React components which are connected to the redux store.
-
-***Container components care about how things work, while components care about how things look.***
 
 #### Project Structure
 
@@ -64,6 +58,28 @@ setup-isomorphic-javascript
 	webpack.config.prodServer.js
 
 ```
+`/client`, contains entry point for client side, config for reducers and routes.
+
+`/client/App`, main wrapper for app layout, routers, reducers.
+
+`/client/component`, contains dumb React components which depend on containers for data.
+
+`/client/container`, contains React components which are connected to the redux store.
+
+`/server`, entry point for server side and express config.
+
+`/server/db`, models, schemas.
+
+`/server/source`, router, API and config for server side rendering.
+
+`/utils`, contains plop config, clean config, starting template and generator template.
+
+`/utils/starting`, contains starting template (if project got cleaned with `npm run clean`).
+
+`/utils/template`, plop generator template.
+
+***Container components care about how things work, while components care about how things look.***
+
 
 #### component & container structure
 
