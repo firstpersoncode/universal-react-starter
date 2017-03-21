@@ -3,9 +3,10 @@
 **Packed with:**
 ## [React](https://facebook.github.io/react)
 ## [Redux](http://redux.js.org)
-## [React Router](https://reacttraining.com/react-router)
+## [React Router v4 !](https://reacttraining.com/react-router)
 ## [Express](https://expressjs.com)
 ## [Mongoose](http://mongoosejs.com)
+## [Webpack v2](https://webpack.github.io/)
 ## [Immutee](https://github.com/diruuu/immutee)
 
 ### modular css/sass + plop generator + hot reload + server side rendering !
