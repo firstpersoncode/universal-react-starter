@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Headers = require('./headersSchema');
-module.exports = {
+import mongoose from 'mongoose';
+import Headers from './headersSchema';
+export default {
   Headers,
 };
