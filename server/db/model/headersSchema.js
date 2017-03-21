@@ -1,5 +1,6 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const headersSchema = mongoose.Schema({
   data: String,
 });
-export default mongoose.model('Headers', headersSchema);
+const Headers = mongoose.model('Headers', headersSchema);
+module.exports = Headers;

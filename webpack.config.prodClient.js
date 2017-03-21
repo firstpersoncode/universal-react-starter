@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: "inline-source-map",
-  entry: "./client/index",
+  entry: path.resolve(process.cwd(), "./client/index"),
   target: "web",
   module: {
     rules: [
@@ -39,7 +39,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, ".build"),
-    publicPath: "/",
+    publicPath: '/',
     filename: "bundle.js",
   },
 };

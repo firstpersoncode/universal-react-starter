@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "start:client": "webpack-dev-server --config webpack.config.client.js",
-    "start:server": "webpack --define process.env.NODE_ENV='\"development\"' --config  webpack.config.server.js",
+    "start:client": "webpack-dev-server --config webpack.config.devClient.js",
+    "start:server": "webpack --define process.env.NODE_ENV='\"development\"' --config webpack.config.devServer.js",
     "start": "rm -rf ./.build && npm-run-all --parallel start:client start:server",
     "build:client": "webpack --config webpack.config.prodClient.js -p",
     "build:server": "webpack --define process.env.NODE_ENV='\"production\"' --config webpack.config.prodServer.js -p",

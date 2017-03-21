@@ -1,5 +1,6 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const defaultSchema = mongoose.Schema({
   data: String,
 });
-export default mongoose.model('default', defaultSchema);
+const Default = mongoose.model('Default', defaultSchema);
+module.exports = Default;

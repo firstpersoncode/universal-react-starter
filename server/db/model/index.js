@@ -1,5 +1,3 @@
-import mongoose from 'mongoose';
-import Headers from './headersSchema';
-export default {
-  Headers,
+module.exports = {
+  Headers: require('./headersSchema'),
 };

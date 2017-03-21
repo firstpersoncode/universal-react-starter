@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 // connect database
-export default (db) => {
+module.exports = (db) => {
   return mongoose.connect(db, (err) => {
     if(err) {
       console.log(err)

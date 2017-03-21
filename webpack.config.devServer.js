@@ -4,7 +4,7 @@ const nodeExternals = require("webpack-node-externals");
 const StartServerPlugin = require("start-server-webpack-plugin");
 
 module.exports = {
-    entry: [ "webpack/hot/poll?1000", "./server/index" ],
+    entry: [ "webpack/hot/poll?1000", "./server/index"],
     watch: true,
     target: "node",
     externals: [ nodeExternals({ whitelist: [ "webpack/hot/poll?1000" ] }) ],
@@ -42,7 +42,7 @@ module.exports = {
     ],
     output: {
       path: path.join(__dirname, ".build"),
-      publicPath: "/",
+      publicPath: '/',
       filename: "server.js",
     },
 };
