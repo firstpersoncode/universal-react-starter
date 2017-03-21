@@ -17,7 +17,7 @@
 
 ```javascript
 
-universal-javascript
+universal-javascript-starter
 
 	client
 		App // layout + provider
