@@ -13,16 +13,12 @@ fs.readdirSync('node_modules')
   });
 
 module.exports = {
-  entry: {
-    client: "./client/index",
-    server: "./server/index"
-  },
+  entry: "./server/index",
   module: {
     rules: [
-      { test: /\.js?$/, use: "babel-loader", exclude: /node_modules/ },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
+        { test: /\.js?$/, use: "babel-loader", exclude: /node_modules/ },
+        {
+          test: /\.scss$/,
           loader: [
             {
               loader: 'css-loader',
@@ -38,24 +34,19 @@ module.exports = {
               loader: 'sass-loader'
             }
           ]
-        })
-      }
+        }
     ],
   },
   target: 'node',
   externals: nodeModules,
   plugins: [
-    new ExtractTextPlugin({
-      filename: 'style.css',
-      allChunks: true
-    }),
     new webpack.DefinePlugin({
         "process.env": { BUILD_TARGET: JSON.stringify("server") },
-    }),
+    })
   ],
   output: {
     path: path.join(__dirname, ".build"),
     publicPath: "/",
-    filename: "[name].bundle.js",
+    filename: "app.js",
   },
 };

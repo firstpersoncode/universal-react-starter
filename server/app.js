@@ -24,7 +24,7 @@ app.use(cookieParser());
 if (process.env.NODE_ENV === "production") {
   app.use(favicon(path.resolve(process.cwd(), './public/favicon.ico')))
   app.use(express.static(path.resolve(process.cwd(), './public')));
-  fse.copy(path.resolve(process.cwd(), './.build/client.bundle.js'), path.resolve(process.cwd(), './public/javascripts/bundle.js'));
+  fse.copy(path.resolve(process.cwd(), './.build/bundle.js'), path.resolve(process.cwd(), './public/javascripts/bundle.js'));
   fse.copy(path.resolve(process.cwd(), './.build/style.css'), path.resolve(process.cwd(), './public/stylesheets/style.css'));
 }
 
