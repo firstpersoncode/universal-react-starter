@@ -4,15 +4,15 @@
   "description": "Universal Javascript starter with React, Redux, React Router, Express, CSS/SASS Module, Mongoose, Webpack.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/firstpersoncode/universal-javascript.git"
+    "url": "git+https://github.com/firstpersoncode/universal-javascript-starter.git"
   },
   "keywords": ["react", "redux", "react-router", "react-redux", "webpack", "mongoose", "plop", "sass-loader", "css-loader", "immutee"],
   "author": "Nasser",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/firstpersoncode/universal-javascript/issues"
+    "url": "https://github.com/firstpersoncode/universal-javascript-starter/issues"
   },
-  "homepage": "https://github.com/firstpersoncode/universal-javascript/blob/master/README.md",
+  "homepage": "https://github.com/firstpersoncode/universal-javascript-starter/blob/master/README.md",
   "scripts": {
     "start:client": "webpack-dev-server --config webpack.config.devClient.js",
     "start:server": "webpack --define process.env.NODE_ENV='\"development\"' --config webpack.config.devServer.js",
