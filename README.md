@@ -6,6 +6,7 @@
 ## [React Router](https://reacttraining.com/react-router)
 ## [Express](https://expressjs.com)
 ## [Mongoose](http://mongoosejs.com)
+## [Immutee](https://github.com/diruuu/immutee)
 
 ### modular css/sass + plop generator + hot reload + server side rendering !
 
