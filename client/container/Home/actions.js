@@ -26,7 +26,6 @@ export function fetchHeaders() {
   return (dispatch) => {
     return axios.get('http://localhost:50045/headers')
     .then((res) => {
-      console.log(res)
       dispatch({
         type: FETCH_HEADER,
         payload: res.data

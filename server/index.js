@@ -1,14 +1,12 @@
-import http from "http";
-import app from "./server";
+import app from "./app";
 
-const server = http.createServer(app);
 let currentApp = app;
-server.listen(50045);
+app.listen(50045);
 
 if (module.hot) {
-    module.hot.accept("./server", () => {
-        server.removeListener("request", currentApp);
-        server.on("request", app);
+    module.hot.accept("./app", () => {
+        app.removeListener("request", currentApp);
+        app.on("request", app);
         currentApp = app;
     });
 }

@@ -1,9 +1,9 @@
-import styles from '../src/main.scss';
+// require("file-loader?name=[name].[ext]!./index.html");
 import { AppContainer } from "react-hot-loader";
-
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import App from '../src/App';
+import App from './App';
+import styles from './main.scss';
 
 render(
   <AppContainer>
@@ -13,7 +13,7 @@ render(
 );
 
 if (module.hot) {
-  module.hot.accept("../src/App", () => {
+  module.hot.accept("./App", () => {
     render(
       <AppContainer>
         <App />

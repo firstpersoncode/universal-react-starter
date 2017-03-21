@@ -1,16 +1,22 @@
 const webpack = require("webpack");
 const path = require("path");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const fs = require('fs');
+
+let nodeModules = {};
+fs.readdirSync('node_modules')
+  .filter(function(x) {
+    return ['.bin'].indexOf(x) === -1;
+  })
+  .forEach(function(mod) {
+    nodeModules[mod] = 'commonjs ' + mod;
+  });
 
 module.exports = {
-  devtool: "inline-source-map",
-  entry: [
-    "react-hot-loader/patch",
-    "webpack-dev-server/client?http://localhost:50044",
-    "webpack/hot/only-dev-server",
-    "./client/index",
-  ],
-  target: "web",
+  entry: {
+    client: "./client/index",
+    server: "./server/index"
+  },
   module: {
     rules: [
       { test: /\.js?$/, use: "babel-loader", exclude: /node_modules/ },
@@ -36,28 +42,20 @@ module.exports = {
       }
     ],
   },
+  target: 'node',
+  externals: nodeModules,
   plugins: [
     new ExtractTextPlugin({
       filename: 'style.css',
       allChunks: true
     }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
-      "process.env": { BUILD_TARGET: JSON.stringify("client") },
+        "process.env": { BUILD_TARGET: JSON.stringify("server") },
     }),
   ],
-  devServer: {
-    inline: true,
-    host: "localhost",
-    port: 50044,
-    historyApiFallback: true,
-    hot: true,
-  },
   output: {
     path: path.join(__dirname, ".build"),
     publicPath: "/",
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
   },
 };

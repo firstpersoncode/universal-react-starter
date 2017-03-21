@@ -2,7 +2,6 @@ const webpack = require("webpack");
 const path = require("path");
 const nodeExternals = require("webpack-node-externals");
 const StartServerPlugin = require("start-server-webpack-plugin");
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: [ "webpack/hot/poll?1000", "./server/index" ],
@@ -14,31 +13,25 @@ module.exports = {
             { test: /\.js?$/, use: "babel-loader", exclude: /node_modules/ },
             {
               test: /\.scss$/,
-              loader: ExtractTextPlugin.extract({
-                loader: [
-                  {
-                    loader: 'css-loader',
-                    query: {
-                      localIdentName: '[name]_[local]_[hash:8]',
-                      modules: true
-                    }
-                  },
-                  {
-                    loader: 'postcss-loader'
-                  },
-                  {
-                    loader: 'sass-loader'
+              loader: [
+                {
+                  loader: 'css-loader',
+                  query: {
+                    localIdentName: '[name]_[local]_[hash:8]',
+                    modules: true
                   }
-                ]
-              })
+                },
+                {
+                  loader: 'postcss-loader'
+                },
+                {
+                  loader: 'sass-loader'
+                }
+              ]
             }
         ],
     },
     plugins: [
-        new ExtractTextPlugin({
-          filename: 'style.css',
-          allChunks: true
-        }),
         new StartServerPlugin("server.js"),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
@@ -47,5 +40,9 @@ module.exports = {
             "process.env": { BUILD_TARGET: JSON.stringify("server") },
         }),
     ],
-    output: { path: path.join(__dirname, ".build"), filename: "server.js" },
+    output: {
+      path: path.join(__dirname, ".build"),
+      publicPath: "/",
+      filename: "server.js",
+    },
 };
