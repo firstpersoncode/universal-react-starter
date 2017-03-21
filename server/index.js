@@ -1,7 +1,17 @@
 import app from "./app";
 
 let currentApp = app;
-app.listen(50045);
+const PORT = 50045;
+app.listen(PORT, () => {
+  console.log(`=================================================
+
+
+
+    server running on port ${PORT}
+
+
+  =================================================`)
+});
 
 if (module.hot) {
     module.hot.accept("./app", () => {

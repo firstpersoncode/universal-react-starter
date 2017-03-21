@@ -1,4 +1,3 @@
-// require("file-loader?name=[name].[ext]!./index.html");
 import { AppContainer } from "react-hot-loader";
 import React, { Component } from 'react';
 import { render } from 'react-dom';

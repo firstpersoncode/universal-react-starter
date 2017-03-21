@@ -24,7 +24,6 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
 	const header = req.body;
-  console.log(header)
 	addHeaders(header, (newHeaders) => {
 		res.json(newHeaders);
 	});

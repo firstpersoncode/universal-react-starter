@@ -3,8 +3,8 @@
     "start:client": "webpack-dev-server --config webpack.config.client.js",
     "start:server": "webpack --define process.env.NODE_ENV='\"development\"' --config  webpack.config.server.js",
     "start": "rm -rf ./.build && npm-run-all --parallel start:client start:server",
-    "build:client": "webpack --config webpack.config.client.js -p",
-    "build:server": "webpack --define process.env.NODE_ENV='\"production\"' --config webpack.config.prod.js -p",
+    "build:client": "webpack --config webpack.config.prodClient.js -p",
+    "build:server": "webpack --define process.env.NODE_ENV='\"production\"' --config webpack.config.prodServer.js -p",
     "build": "rm -rf ./.build && npm-run-all --parallel build:client build:server",
     "start:prod": "node ./.build/app.js"
   },

@@ -53,7 +53,6 @@ module.exports = {
     host: "localhost",
     port: 50044,
     historyApiFallback: true,
-    hot: true,
   },
   output: {
     path: path.join(__dirname, ".build"),

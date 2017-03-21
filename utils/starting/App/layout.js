@@ -1,40 +1,20 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch } from 'react-router';
 import Helmet from 'react-helmet';
-import createBrowserHistory from 'history/createBrowserHistory'
-import routeConfig from '../routers';
-import Home from "../container/Home";
 import Nav from '../component/Nav';
-import NotFound from "../container/NotFound";
+import Footer from '../component/Footer';
+import Routes from './routers';
 
-const history = createBrowserHistory()
-
-class Layout extends Component {
-  render() {
-
-    const mapRoute = routeConfig.map((index, i) => {
-      return (
-          <Route key={i} {...index} />
-      )
-    })
-    return (
-        <Router history={history}>
-         <div>
-           <Helmet
-             meta={[
-              {name: "description", content: "Isomorphic javascript app"}
-            ]}
-            defaultTitle="Isomorphic javascript app" />
-          <Nav />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            {mapRoute}
-            <Route component={NotFound} />
-          </Switch>
-        </div>
-      </Router>
-    );
-  }
+export default () => {
+  return (
+    <div>
+     <Helmet
+        meta={[
+          {name: "description", content: "Isomorphic javascript app"}
+        ]}
+        defaultTitle="Isomorphic javascript app" />
+      <Nav />
+      <Routes />
+      <Footer />
+    </div>
+  );
 }
-
-export default Layout
