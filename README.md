@@ -78,7 +78,7 @@ setup-isomorphic-javascript
 
 `/utils/template`, plop generator template.
 
-***Container components care about how things work, while components care about how things look.***
+***Container care about how things work, while Component care about how things look.***
 
 
 #### component & container structure
