@@ -17,7 +17,7 @@
 
 ```javascript
 
-setup-isomorphic-javascript
+universal-javascript
 
 	client
 		App // layout + provider
