@@ -7,7 +7,8 @@
     "build:server": "webpack --define process.env.NODE_ENV='\"production\"' --config webpack.config.prodServer.js -p",
     "build": "rm -rf ./.build && npm-run-all --parallel build:client build:server",
     "start:prod": "node ./.build/app.js",
-    "clean": "node ./utils/clean.js"
+    "clean": "node ./utils/clean.js",
+    "generator": "cd utils && plop && cd .."
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
