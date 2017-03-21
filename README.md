@@ -1,3 +1,14 @@
+# Universal Javascript
+---
+**Packed with:**
+## [React](https://facebook.github.io/react)
+## [Redux](http://redux.js.org)
+## [React Router](https://reacttraining.com/react-router)
+## [Express](https://expressjs.com)
+## [Mongoose](http://mongoosejs.com)
+
+### modular css/sass + plop generator + hot reload + server side rendering !
+
 ### Let's get started
 
 `/client/component`, contains dumb React components which depend on containers for data.
