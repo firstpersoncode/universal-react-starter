@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/firstpersoncode/universal-javascript.git"
   },
-  "keywords": [],
+  "keywords": ["react", "redux", "react-router", "react-redux", "webpack", "mongoose", "plop", "sass-loader", "css-loader", "immutee"],
   "author": "Nasser",
   "license": "MIT",
   "bugs": {
