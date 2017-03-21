@@ -1,7 +1,7 @@
 {
-  "name": "universal-javascript",
+  "name": "universal-javascript-starter",
   "version": "0.0.0",
-  "description": "Universal Javascript App with React, Redux, React Router, Express, CSS/SASS Module, Mongoose, Webpack.",
+  "description": "Universal Javascript starter with React, Redux, React Router, Express, CSS/SASS Module, Mongoose, Webpack.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/firstpersoncode/universal-javascript.git"

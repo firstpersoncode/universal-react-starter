@@ -11,8 +11,11 @@ import routes from "../../client/routes";
 
 export default (req, res) => {
 
+  // grab route object from ../../client/routes that match with req.url
   const routeMatch = routes.filter(route => route.path === req.url).pop();
   const store = configureStore();
+
+  // still not using context on rendering, but props context is required on static router
   const context = {};
   let html;
   let body;
