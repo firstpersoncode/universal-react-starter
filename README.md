@@ -3,45 +3,49 @@
 **Packed with:**
 ## [React](https://facebook.github.io/react)
 ## [Redux](http://redux.js.org)
+## [Redux Universal !](https://www.npmjs.com/package/redux-universal)
 ## [React Router v4 !](https://reacttraining.com/react-router)
 ## [Express](https://expressjs.com)
 ## [Mongoose](http://mongoosejs.com)
 ## [Webpack v2](https://webpack.github.io/)
 ## [Immutee](https://github.com/diruuu/immutee)
 
-### modular css/sass + plop generator + hot reload + server side rendering !
+### modular sass + plop generator + hot reload + server side rendering !
+
+#### Easy project structure, SEO friendly, fast performance, and easy maintain.
 ---
+
 ### Let's get started
 
 #### Project Structure
 
 ```javascript
 
-universal-javascript-starter
+universal-react-starter
 
 	client
-		App // layout + provider
+		App // layout + provider + routers components
 		component // dumb component (stateless component)
 		container // smart component connected with redux store
-		reducers.js // config reducer
-		routers.js // config router
-		index.html
 		index.js // entry point client
-    
+		main.scss // global styling
+		reducers.js // config reducer
+		routes.js // config routes
+
 	public //static file
 		javascripts
 		stylesheets
 		favicon.ico
 		robots.txt
-    
+
 	server
 		db
-		model // schemas
-		index.js // config db
+			model // schemas
+			index.js // config db
 		source // source routers
 		app.js // express setup
 		index.js // entry point server
-	
+
 	utils
 		starting // template for starting project
 		templates // template for generator
@@ -52,7 +56,7 @@ universal-javascript-starter
 	postcss.config.js // auto prefixer for sass
 	sass-loader.js // sass loader config
 	package.json
-	webpack.config.devClient.js 
+	webpack.config.devClient.js
 	webpack.config.devServer.js
 	webpack.config.prodClient.js
 	webpack.config.prodServer.js
@@ -123,4 +127,4 @@ clean project:
 npm run clean
 ```
 
-> *Hit me up if you have any questions regarding the project > nasser.maronie@gmail.com*
+> *Hit me up if you have any questions regarding to the project > nasser.maronie@gmail.com*

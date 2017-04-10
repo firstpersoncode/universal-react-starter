@@ -80,6 +80,7 @@ export default (req, res) => {
     );
   }
 
+  // Async initialState reducer and render the view
   store.renderUniversal(renderToString, body)
   .then(({ output }) => {
     const state = store.getState();

@@ -16,7 +16,10 @@
     "plop",
     "sass-loader",
     "css-loader",
-    "immutee"
+    "immutee",
+    "isomorphic",
+    "universal",
+    "javascript"
   ],
   "author": "Nasser",
   "license": "MIT",
