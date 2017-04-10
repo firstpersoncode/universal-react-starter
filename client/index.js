@@ -4,28 +4,21 @@ import { render } from 'react-dom';
 import App from './App';
 import styles from './main.scss';
 
-const root = document.getElementById('root');
-
-if (process.env.NODE_ENV === "production") {
-  render(
-    <App />,
-    root
-  )
-} else {  
-  render(
-    <AppContainer>
+render(
+  <AppContainer>
     <App />
-    </AppContainer>,
-    root
-  );
+  </AppContainer>,
+  document.getElementById('root')
+);
 
+if (process.env.NODE_ENV === "development") {
   if (module.hot) {
     module.hot.accept("./App", () => {
       render(
         <AppContainer>
-        <App />
+          <App />
         </AppContainer>,
-        root
+        document.getElementById("root"),
       );
     });
   }

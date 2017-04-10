@@ -6,7 +6,18 @@
     "type": "git",
     "url": "git+https://github.com/firstpersoncode/universal-react-starter.git"
   },
-  "keywords": ["react", "redux", "react-router", "react-redux", "webpack", "mongoose", "plop", "sass-loader", "css-loader", "immutee"],
+  "keywords": [
+    "react",
+    "redux",
+    "react-router",
+    "react-redux",
+    "webpack",
+    "mongoose",
+    "plop",
+    "sass-loader",
+    "css-loader",
+    "immutee"
+  ],
   "author": "Nasser",
   "license": "MIT",
   "bugs": {
@@ -21,6 +32,7 @@
     "build:server": "webpack --define process.env.NODE_ENV='\"production\"' --config webpack.config.prodServer.js -p",
     "build": "rm -rf ./.build && npm-run-all --parallel build:client build:server",
     "start:prod": "node ./.build/app.js",
+    "generator": "cd ./utils && plop && cd ..",
     "clean": "node ./utils/clean.js"
   },
   "devDependencies": {
@@ -75,6 +87,7 @@
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "redux-promise-middleware": "^4.1.0",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "redux-universal": "0.0.2"
   }
 }

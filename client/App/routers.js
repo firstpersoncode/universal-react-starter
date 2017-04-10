@@ -6,11 +6,9 @@ import NotFound from "../container/NotFound";
 export default () => {
   return (
     <Switch>
-      {routeConfig.map((route, i) => {
-        return (
-            <Route key={i} {...route} />
-        )
-      })}
+      {routeConfig.map((route, i) => (
+        <Route key={i} {...route} />
+      ))}
       <Route component={NotFound} />
     </Switch>
   );

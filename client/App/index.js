@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import configureStore from './store';
 import Layout from "./layout";
 
-const initialState = window.INITIAL_STATE || {};
+const initialState = window.INITIAL_STATE;
 const store = configureStore(initialState);
 
 export default () => {

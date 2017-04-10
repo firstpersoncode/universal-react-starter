@@ -30,7 +30,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // API
-app.use("/headers", headers);
+app.get("/api/headers", headers.get);
+app.post("/api/headers", headers.post);
 
 // render view
 app.get("*", index);

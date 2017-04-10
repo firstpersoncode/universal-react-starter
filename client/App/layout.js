@@ -1,20 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Helmet from 'react-helmet';
-import Nav from '../component/Nav';
-import Footer from '../component/Footer';
 import Routes from './routers';
+import Main from '../container/Main';
 
 export default () => {
   return (
-    <div>
-     <Helmet
-        meta={[
-          {name: "description", content: "Isomorphic javascript app"}
-        ]}
-        defaultTitle="Isomorphic javascript app" />
-      <Nav />
+    <Main>
       <Routes />
-      <Footer />
-    </div>
+    </Main>
   );
 }

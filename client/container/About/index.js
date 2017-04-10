@@ -5,14 +5,7 @@ import BlackBox from '../../component/BlackBox';
 import styles from './style.scss';
 
 class About extends Component {
-  constructor() {
-    super();
-    // this.drag = this.drag.bind(this);
-    // this.drag = this.drag.bind(this);
-  }
-
   flee(e) {
-    // console.log(e.clientY, e.clientX, e.target);
     e.target.style.transform = `translate(${e.clientX / 3}px, ${e.clientY / 3}px)`
   }
   render() {

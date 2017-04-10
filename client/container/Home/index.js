@@ -11,7 +11,7 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      preview: 'react + react-redux + react-helmet + react-router-dom + express + mongoose + modular CSS !'
+      preview: null,
     };
     this.handlePreview = this.handlePreview.bind(this);
     this.handleSetHeader = this.handleSetHeader.bind(this);
@@ -33,12 +33,21 @@ class Home extends Component {
     text.value = '';
   }
 
+  componentDidMount() {
+    console.log(this.props.isMobile)
+    if (this.props.isMobile) {
+      alert('Running on mobile ... ');
+    } else {
+      alert('Running on desktop ... ');
+    }
+  }
+
   render() {
     return (
       <div class={styles.bg}>
         <Helmet
           meta={[
-            {name: "description", content: "Isomorphic javascript app"}
+            {name: "description", content: "Universal ReactJS Starter"}
           ]} />
         <Header header={this.state.preview} smallHeader={this.props.smallHeader} latestHeader={this.props.header} />
         <BlackBox>
@@ -56,5 +65,6 @@ export default connect((store) => {
   return {
     header: store.homeState.header,
     smallHeader: store.homeState.smallHeader,
-  }
+    isMobile: store.mainState.isMobile,
+  };
 })(Home);

@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticRouter as Router } from 'react-router';
+import { StaticRouter as Router, matchPath } from 'react-router';
 import { Provider } from 'react-redux';
 import { renderToString } from "react-dom/server";
 import Helm from 'react-helmet';
@@ -12,10 +12,9 @@ import routes from "../../client/routes";
 export default (req, res) => {
 
   // grab route object from ../../client/routes that match with req.url
-  const routeMatch = routes.filter(route => route.path === req.url).pop();
-  const store = configureStore();
+  const match = routes.reduce((acc, route) => matchPath(req.url, route, { exact: true }) || acc, null);
 
-  // still not using context on rendering, but props context is required on static router
+  const store = configureStore();
   const context = {};
   let html;
   let body;
@@ -32,10 +31,10 @@ export default (req, res) => {
             <link rel="stylesheet" href="http://localhost:50044/style.css" />
             ${head.meta.toString()}
             ${head.link.toString()}
+            ${head.script.toString()}
           </head>
           <body>
             <div id="root">${body}</div>
-            ${head.script.toString()}
             <script>window.INITIAL_STATE = ${JSON.stringify(initialState)};</script>
             <script src="http://localhost:50044/bundle.js"></script>
           </body>
@@ -53,10 +52,10 @@ export default (req, res) => {
             <link rel="stylesheet" href="stylesheets/style.css" />
             ${head.meta.toString()}
             ${head.link.toString()}
+            ${head.script.toString()}
           </head>
           <body>
             <div id="root">${body}</div>
-            ${head.script.toString()}
             <script>window.INITIAL_STATE = ${JSON.stringify(initialState)};</script>
             <script src="javascripts/bundle.js"></script>
           </body>
@@ -64,29 +63,41 @@ export default (req, res) => {
     };
   }
 
-  if (!routeMatch) {
+  body = (
+    <Provider store={store}>
+      <Router
+        location={req.url}
+        context={context}>
+        <Layout />
+      </Router>
+    </Provider>
+  );
+
+  if (!match) {
     res.status(404);
-
-    body = renderToString(
+    body = (
       <h1>page not found ...</h1>
-    )
-  } else {
-    res.status(200);
-
-    body = renderToString(
-      <Provider store={store}>
-        <Router
-          location={routeMatch.path}
-          context={context}>
-          <Layout />
-        </Router>
-      </Provider>
     );
   }
 
-  res.send(html({
-    body,
-    head: Helm.rewind(),
-    initialState: store.getState()
-  }))
+  store.renderUniversal(renderToString, body)
+  .then(({ output }) => {
+    const state = store.getState();
+    res.status(200);
+    res.send(html({
+      body: output,
+      head: Helm.rewind(),
+      initialState: state
+    }));
+  })
+  .catch(({ output, error }) => {
+    console.warn(error);
+    res.status(500);
+    const state = store.getState();
+    res.send(html({
+      body: output,
+      head: Helm.rewind(),
+      initialState: state
+    }));
+  })
 };
