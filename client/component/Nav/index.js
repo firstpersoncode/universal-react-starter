@@ -5,9 +5,10 @@ const Nav = (props) => {
   return (
     <nav class={styles.nav}>
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/documentation">documentation</Link></li>
+        <li><Link to="/">home</Link></li>
+        <li><Link to="/sample">sample</Link></li>
+        <li><Link to="/about">about</Link></li>
+        <li><Link to="/docs">docs</Link></li>
       </ul>
     </nav>
   );

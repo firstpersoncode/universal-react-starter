@@ -1,47 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Helmet from "react-helmet";
-import { setHeader, fetchHeaders } from './actions';
-import Header from '../../component/Header';
-import Form from '../../component/Form';
-import BlackBox from '../../component/BlackBox';
 import styles from './style.scss';
 
 class Home extends Component {
-  constructor() {
-    super();
-    this.state = {
-      preview: null,
-    };
-    this.handlePreview = this.handlePreview.bind(this);
-    this.handleSetHeader = this.handleSetHeader.bind(this);
-  }
-
-  componentWillMount() {
-    if (!this.props.smallHeader.length)
-      this.props.dispatch(fetchHeaders())
-  }
-
-  handlePreview(e) {
-    this.setState({ preview: e.target.value })
-  }
-
-  handleSetHeader(e) {
-    e.preventDefault();
-    const text = this.refs.form.refs.textInput;
-    this.props.dispatch(setHeader({data: text.value}));
-    text.value = '';
-  }
-
-  componentDidMount() {
-    console.log(this.props.isMobile)
-    if (this.props.isMobile) {
-      alert('Running on mobile ... ');
-    } else {
-      alert('Running on desktop ... ');
-    }
-  }
-
   render() {
     return (
       <div class={styles.bg}>
@@ -49,22 +11,29 @@ class Home extends Component {
           meta={[
             {name: "description", content: "Universal ReactJS Starter"}
           ]} />
-        <Header header={this.state.preview} smallHeader={this.props.smallHeader} latestHeader={this.props.header} />
-        <BlackBox>
-          <Form
-            ref="form"
-            handlePreview={this.handlePreview}
-            handleSetHeader={this.handleSetHeader} />
-        </BlackBox>
+        <div class={styles.header}>
+          <h1>Universal ReactJS Starter</h1>
+          <h4>Packed with</h4>
+          <ul>
+            <li><a href="https://facebook.github.io/react" target="_blank">React</a></li>
+            <li><a href="http://redux.js.org/" target="_blank">Redux</a></li>
+            <li><a href="https://www.npmjs.com/package/redux-universal" target="_blank">Redux Universal !</a></li>
+            <li><a href="https://reacttraining.com/react-router" target="_blank">React Router v4 !</a></li>
+            <li><a href="https://expressjs.com/" target="_blank">Express</a></li>
+            <li><a href="http://mongoosejs.com/" target="_blank">Mongoose</a></li>
+            <li><a href="https://webpack.github.io/" target="_blank">Webpack v2</a></li>
+            <li><a href="https://github.com/diruuu/immutee" target="_blank">Immutee</a></li>
+          </ul>
+        </div>
+        <p class={styles.paragraph}>
+          modular sass + plop generator + hot reload + server side rendering !<br/>
+          Easy project structure, SEO friendly, fast performance, and easy maintain.
+        </p>
       </div>
     );
   }
 }
 
 export default connect((store) => {
-  return {
-    header: store.homeState.header,
-    smallHeader: store.homeState.smallHeader,
-    isMobile: store.mainState.isMobile,
-  };
+  return {};
 })(Home);
