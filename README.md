@@ -127,4 +127,4 @@ clean project:
 npm run clean
 ```
 
-> *Hit me up if you have any questions regarding to the project > nasser.maronie@gmail.com*
+> *Hit me up if you have any questions regarding to the project > mail@thefirstpersoncode.com*
