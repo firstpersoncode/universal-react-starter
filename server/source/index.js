@@ -17,7 +17,15 @@ export default (req, res) => {
   const store = configureStore();
   const context = {};
   let html;
-  let body;
+  let body = (
+    <Provider store={store}>
+      <Router
+        location={req.url}
+        context={context}>
+        <Layout />
+      </Router>
+    </Provider>
+  );
 
   if (process.env.NODE_ENV === "development") {
     html = ({ body, head, initialState }) => {
@@ -63,42 +71,28 @@ export default (req, res) => {
     };
   }
 
-  body = (
-    <Provider store={store}>
-      <Router
-        location={req.url}
-        context={context}>
-        <Layout />
-      </Router>
-    </Provider>
-  );
-
-  if (!match) {
-    res.status(404);
-    body = (
-      <h1>page not found ...</h1>
-    );
-  }
-
   // Async initialState reducer and render the view
   store.renderUniversal(renderToString, body)
   .then(({ output }) => {
     const state = store.getState();
-    res.status(200);
-    res.send(html({
-      body: output,
-      head: Helm.rewind(),
-      initialState: state
-    }));
+    if (!match) {
+      res.status(404).send(html({
+        body: output,
+        head: Helm.rewind(),
+        initialState: state
+      }));
+    } else {
+      res.status(200).send(html({
+        body: output,
+        head: Helm.rewind(),
+        initialState: state
+      }));
+    }
   })
   .catch(({ output, error }) => {
     console.warn(error);
-    res.status(500);
-    const state = store.getState();
-    res.send(html({
-      body: output,
-      head: Helm.rewind(),
-      initialState: state
+    res.status(500).send(html({
+      body: error,
     }));
   })
 };
