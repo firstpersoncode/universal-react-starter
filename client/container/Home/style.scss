@@ -8,7 +8,7 @@
 }
 
 .header {
-  height: 40vh;
+  min-height: 40vh;
   padding: 15px;
   background: #222;
   animation: slideDown ease-out 1s 1;
@@ -25,7 +25,7 @@
     li {
       display: inline-block;
       a {
-        padding: 10px;
+        padding: 15px;
         color: #a8ffff;
       }
     }

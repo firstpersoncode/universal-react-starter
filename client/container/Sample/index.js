@@ -12,7 +12,6 @@ class Sample extends Component {
     super();
     this.state = {
       preview: null,
-      viewport: null
     };
     this.handlePreview = this.handlePreview.bind(this);
     this.handleSetHeader = this.handleSetHeader.bind(this);
@@ -34,11 +33,6 @@ class Sample extends Component {
     text.value = '';
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps, "aa")
-    this.setState({ viewport: nextProps.isMobile })
-  }
-
   render() {
     return (
       <div class={styles.bg}>
@@ -53,7 +47,6 @@ class Sample extends Component {
             handlePreview={this.handlePreview}
             handleSetHeader={this.handleSetHeader} />
         </BlackBox>
-        <small class={styles.viewportStatus}>{this.state.viewport ? "Mobile" : "Desktop"}</small>
       </div>
     );
   }
@@ -63,6 +56,5 @@ export default connect((store) => {
   return {
     header: store.sampleState.header,
     smallHeader: store.sampleState.smallHeader,
-    isMobile: store.mainState.isMobile,
   };
 })(Sample);

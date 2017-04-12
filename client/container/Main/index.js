@@ -37,6 +37,7 @@ class Main extends Component {
           defaultTitle="Universal ReactJS Starter"
           titleTemplate={this.state.isMobile ? "URS mobile - %s" : "URS - %s"} />
         {this.props.children}
+        <small class={styles.viewportStatus}>{this.props.mainState.isMobile ? "Mobile" : "Desktop"}</small>
         <Nav />
         <Footer />
       </main>
