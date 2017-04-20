@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { setHeader, fetchHeaders } from './actions';
 import Header from '../../component/Header';
 import Form from '../../component/Form';
@@ -36,10 +36,10 @@ class Sample extends Component {
   render() {
     return (
       <div class={styles.bg}>
-        <Helmet
-          meta={[
-            {name: "description", content: "Universal ReactJS Starter"}
-          ]} />
+        <Helmet>
+          <meta name="description" content="Universal ReactJS Starter Sample app" />
+          <title>Sample App</title>
+        </Helmet>
         <Header header={this.state.preview} smallHeader={this.props.smallHeader} latestHeader={this.props.header} />
         <BlackBox>
           <Form

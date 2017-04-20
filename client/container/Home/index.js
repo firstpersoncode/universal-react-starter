@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import styles from './style.scss';
 
 class Home extends Component {
   render() {
     return (
       <div class={styles.bg}>
-        <Helmet
-          meta={[
-            {name: "description", content: "Universal ReactJS Starter"}
-          ]} />
+        <Helmet>
+          <title>Home</title>
+          <link rel="canonical" href='https://github.com/firstpersoncode/universal-react-starter' />
+        </Helmet>\
         <div class={styles.header}>
           <h1>Universal ReactJS Starter</h1>
           <h4>Packed with</h4>

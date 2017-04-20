@@ -41,11 +41,10 @@ class About extends Component {
   render() {
     return (
       <div class={styles.bg}>
-        <Helmet
-          meta={[
-            {name: "description", content: "About"}
-          ]}
-          title="About" />
+        <Helmet>
+          <meta name="description" content="About Universal ReactJS Starter" />
+          <title>About</title>
+        </Helmet>
         <div class={styles.floatBox} style={this.state.floatStyle}>
           <BlackBox>
             <h2>Isomorphic Javascript App</h2>
