@@ -25,6 +25,11 @@
   }
 }
 
+.floatContainer {
+  position: relative;
+  transition: ease-out .5s;
+}
+
 @-webkit-keyframes slideDown {
     from {opacity: 0; top: -10%; -webkit-transform: translateY(-10%); transform: translateY(-10%)}
     to {opacity: 1; top: 0; -webkit-transform: translateY(0); transform: translateY(0)}

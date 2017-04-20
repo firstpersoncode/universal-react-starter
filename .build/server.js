@@ -20,7 +20,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7dd1119b840225fefcec"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f45e7c16a30c3e2cf309"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -667,7 +667,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(24)(__webpack_require__.s = 24);
+/******/ 	return hotCreateRequire(23)(__webpack_require__.s = 23);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -685,10 +685,6 @@ Object.defineProperty(exports, "__esModule", {
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
-
-var _reactHelmet = __webpack_require__(1);
-
-var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
 
 var _routers = __webpack_require__("./client/App/routers.js");
 
@@ -738,12 +734,34 @@ var _NotFound2 = _interopRequireDefault(_NotFound);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function () {
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+exports.default = function (props) {
+
+  // helper to add props into component
+  var renderMergedProps = function renderMergedProps(component) {
+    for (var _len = arguments.length, rest = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      rest[_key - 1] = arguments[_key];
+    }
+
+    var finalProps = Object.assign.apply(Object, [{}].concat(rest));
+    return _react2.default.createElement(component, finalProps);
+  };
+
+  var PropsRoute = function PropsRoute(_ref) {
+    var component = _ref.component,
+        rest = _objectWithoutProperties(_ref, ['component']);
+
+    return _react2.default.createElement(_reactRouter.Route, _extends({}, rest, { render: function render(routeProps) {
+        return renderMergedProps(component, routeProps, rest);
+      } }));
+  };
+
   return _react2.default.createElement(
     _reactRouter.Switch,
     null,
     _routes2.default.map(function (route, i) {
-      return _react2.default.createElement(_reactRouter.Route, _extends({ key: i }, route));
+      return _react2.default.createElement(PropsRoute, _extends({ key: i }, route, props));
     }),
     _react2.default.createElement(_reactRouter.Route, { component: _NotFound2.default })
   );
@@ -761,21 +779,21 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(17);
+var _redux = __webpack_require__(16);
 
-var _reduxUniversal = __webpack_require__(21);
+var _reduxUniversal = __webpack_require__(20);
 
 var _reduxUniversal2 = _interopRequireDefault(_reduxUniversal);
 
-var _reduxLogger = __webpack_require__(18);
+var _reduxLogger = __webpack_require__(17);
 
 var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-var _reduxThunk = __webpack_require__(20);
+var _reduxThunk = __webpack_require__(19);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _reduxPromiseMiddleware = __webpack_require__(19);
+var _reduxPromiseMiddleware = __webpack_require__(18);
 
 var _reduxPromiseMiddleware2 = _interopRequireDefault(_reduxPromiseMiddleware);
 
@@ -786,8 +804,6 @@ var _reducers2 = _interopRequireDefault(_reducers);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-// import applyMiddleware from 'redux'.applyMiddleware;
-
 
 var middlewares = void 0;
 
@@ -835,7 +851,6 @@ var _style2 = _interopRequireDefault(_style);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var BlackBox = function BlackBox(props) {
-
   return _react2.default.createElement(
     'div',
     { className: _style2.default.container, onMouseEnter: props.onMouseEnter ? props.onMouseEnter : null },
@@ -886,7 +901,6 @@ var _style2 = _interopRequireDefault(_style);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Footer = function Footer(props) {
-
   return _react2.default.createElement(
     'footer',
     { className: _style2.default.footer },
@@ -1014,9 +1028,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _windowOrGlobal = __webpack_require__(22);
+
+var _windowOrGlobal2 = _interopRequireDefault(_windowOrGlobal);
 
 var _style = __webpack_require__("./client/component/Header/style.scss");
 
@@ -1024,42 +1044,100 @@ var _style2 = _interopRequireDefault(_style);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Header = function Header(props) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  var randomStyled = function randomStyled() {
-    var r = Math.floor(Math.random() * 201) - 80;
-    return {
-      transition: 'ease-out 1s',
-      transform: 'translate(' + r * 2 + 'px, ' + r * 2 + 'px) rotate(' + r * 2 + 'deg)'
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Header = function (_Component) {
+  _inherits(Header, _Component);
+
+  function Header() {
+    _classCallCheck(this, Header);
+
+    var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this));
+
+    _this.state = {
+      floatStyle: {
+        transform: 'rotate(0)'
+      }
     };
-  };
+    _this.width = Math.max(_windowOrGlobal2.default.innerWidth);
+    _this.floatStyle = _this.floatStyle.bind(_this);
+    return _this;
+  }
 
-  var mapHeader = props.smallHeader.map(function (index, i) {
-    return _react2.default.createElement(
-      'span',
-      {
-        style: randomStyled(),
-        key: i },
-      index.data
-    );
-  });
+  _createClass(Header, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      if (this.width > 1025) {
+        _windowOrGlobal2.default.document.addEventListener("mousemove", this.floatStyle);
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      if (this.width > 1025) {
+        _windowOrGlobal2.default.document.removeEventListener("mousemove", this.floatStyle);
+      }
+    }
+  }, {
+    key: 'floatStyle',
+    value: function floatStyle(e) {
+      this.setState({
+        floatStyle: {
+          transform: 'rotate(' + (e.clientX - this.width / 2) / 50 + 'deg)'
+        }
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var randomStyled = function randomStyled() {
+        var r = Math.floor(Math.random() * 201) - 80;
+        return {
+          transition: Math.max(_windowOrGlobal2.default.innerWidth) > 1025 ? 'ease-out 15s' : 'linear .5s',
+          transform: 'translate(' + r * 2 + 'px, ' + r * 2 + 'px) rotate(' + r * 2 + 'deg)'
+        };
+      };
 
-  return _react2.default.createElement(
-    'div',
-    { className: _style2.default.header },
-    _react2.default.createElement(
-      'h1',
-      null,
-      props.header
-    ),
-    _react2.default.createElement(
-      'span',
-      { style: randomStyled(), className: _style2.default.latest },
-      props.latestHeader
-    ),
-    mapHeader
-  );
-};
+      var mapHeader = this.props.smallHeader.map(function (index, i) {
+        return _react2.default.createElement(
+          'span',
+          {
+            style: randomStyled(),
+            key: i },
+          index.data
+        );
+      });
+
+      return _react2.default.createElement(
+        'div',
+        { className: _style2.default.header },
+        _react2.default.createElement(
+          'h1',
+          null,
+          this.props.header
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _style2.default.floatContainer, style: this.state.floatStyle },
+          _react2.default.createElement(
+            'span',
+            { style: randomStyled(), className: _style2.default.latest },
+            this.props.latestHeader
+          ),
+          mapHeader
+        )
+      );
+    }
+  }]);
+
+  return Header;
+}(_react.Component);
+
+;
 
 exports.default = Header;
 
@@ -1073,72 +1151,14 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".style_header_e0cf661e {\n  position: absolute;\n  width: 100%;\n  top: 0;\n  left: 0;\n  text-align: center;\n  -webkit-animation-name: style_slideDown_d77bf7b3;\n  animation-name: style_slideDown_d77bf7b3;\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s; }\n  .style_header_e0cf661e h1 {\n    position: relative;\n    font-size: 30px;\n    margin: 10px 0;\n    z-index: 100; }\n  .style_header_e0cf661e span {\n    padding: 10px;\n    font-size: 12px;\n    background: #eee;\n    border-radius: 3px;\n    margin: 5px;\n    display: inline-block; }\n\n@-webkit-keyframes style_slideDown_d77bf7b3 {\n  from {\n    opacity: 0;\n    top: -10%;\n    -webkit-transform: translateY(-10%);\n    transform: translateY(-10%); }\n  to {\n    opacity: 1;\n    top: 0;\n    -webkit-transform: translateY(0);\n    transform: translateY(0); } }\n\n@keyframes style_slideDown_d77bf7b3 {\n  from {\n    opacity: 0;\n    top: -10%;\n    -webkit-transform: translateY(-10%);\n    transform: translateY(-10%); }\n  to {\n    opacity: 1;\n    top: 0;\n    -webkit-transform: translateY(0);\n    transform: translateY(0); } }\n\n@media (max-width: 767px) {\n  .style_header_e0cf661e h1 {\n    font-size: 18px; }\n  .style_header_e0cf661e span {\n    font-size: 10px;\n    opacity: .7; } }\n\n.style_latest_f342dc90 {\n  background: yellow !important; }\n", ""]);
+exports.push([module.i, ".style_header_e0cf661e {\n  position: absolute;\n  width: 100%;\n  top: 0;\n  left: 0;\n  text-align: center;\n  -webkit-animation-name: style_slideDown_d77bf7b3;\n  animation-name: style_slideDown_d77bf7b3;\n  -webkit-animation-duration: 1s;\n  animation-duration: 1s; }\n  .style_header_e0cf661e h1 {\n    position: relative;\n    font-size: 30px;\n    margin: 10px 0;\n    z-index: 100; }\n  .style_header_e0cf661e span {\n    padding: 10px;\n    font-size: 12px;\n    background: #eee;\n    border-radius: 3px;\n    margin: 5px;\n    display: inline-block; }\n\n.style_floatContainer_67ebe5a6 {\n  position: relative;\n  transition: ease-out .5s; }\n\n@-webkit-keyframes style_slideDown_d77bf7b3 {\n  from {\n    opacity: 0;\n    top: -10%;\n    -webkit-transform: translateY(-10%);\n    transform: translateY(-10%); }\n  to {\n    opacity: 1;\n    top: 0;\n    -webkit-transform: translateY(0);\n    transform: translateY(0); } }\n\n@keyframes style_slideDown_d77bf7b3 {\n  from {\n    opacity: 0;\n    top: -10%;\n    -webkit-transform: translateY(-10%);\n    transform: translateY(-10%); }\n  to {\n    opacity: 1;\n    top: 0;\n    -webkit-transform: translateY(0);\n    transform: translateY(0); } }\n\n@media (max-width: 767px) {\n  .style_header_e0cf661e h1 {\n    font-size: 18px; }\n  .style_header_e0cf661e span {\n    font-size: 10px;\n    opacity: .7; } }\n\n.style_latest_f342dc90 {\n  background: yellow !important; }\n", ""]);
 
 // exports
 exports.locals = {
 	"header": "style_header_e0cf661e",
 	"slideDown": "style_slideDown_d77bf7b3",
+	"floatContainer": "style_floatContainer_67ebe5a6",
 	"latest": "style_latest_f342dc90"
-};
-
-/***/ }),
-
-/***/ "./client/component/Loading/index.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _style = __webpack_require__("./client/component/Loading/style.scss");
-
-var _style2 = _interopRequireDefault(_style);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Loading = function Loading(props) {
-  return _react2.default.createElement(
-    'div',
-    { className: _style2.default['Loading'] },
-    _react2.default.createElement(
-      'div',
-      { className: _style2.default["Loading-arc"] },
-      _react2.default.createElement('div', { className: _style2.default["Loading-cube"] })
-    )
-  );
-};
-
-exports.default = Loading;
-
-/***/ }),
-
-/***/ "./client/component/Loading/style.scss":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")();
-// imports
-
-
-// module
-exports.push([module.i, ".style_Loading_7dab7dd1 {\n  position: absolute;\n  width: 100%;\n  height: 195px;\n  display: block;\n  margin: 49px auto;\n  -webkit-perspective: 975px;\n          perspective: 975px;\n  overflow: hidden; }\n\n.style_cube_86d73d9d {\n  position: absolute;\n  bottom: 50%;\n  left: 50%;\n  width: 29px;\n  height: 29px;\n  margin-left: -15px;\n  margin-top: 0; }\n\n.style_cube-2d_9616aed9 {\n  background-color: #111; }\n\n.style_Loading-arc_460e77e2 {\n  position: absolute;\n  bottom: 50%;\n  left: 50%;\n  margin-left: -68px;\n  width: 136px;\n  height: 68px;\n  overflow: hidden; }\n\n.style_Loading-cube_9be2615e {\n  position: absolute;\n  bottom: -68px;\n  left: 50%;\n  margin-left: -68px;\n  width: 136px;\n  height: 136px;\n  border-style: solid;\n  border-top-color: transparent;\n  border-right-color: #111;\n  border-left-color: transparent;\n  border-bottom-color: transparent;\n  border-radius: 50%;\n  box-sizing: border-box;\n  -webkit-animation: style_cssload-arc_b7427cbe 2.3s ease-in-out infinite;\n          animation: style_cssload-arc_b7427cbe 2.3s ease-in-out infinite;\n  -webkit-transform: rotate(-200deg);\n      -ms-transform: rotate(-200deg);\n          transform: rotate(-200deg); }\n\n@keyframes style_cssload-arc_b7427cbe {\n  0% {\n    border-width: 29px; }\n  25% {\n    border-width: 15px; }\n  50% {\n    -webkit-transform: rotate(27deg);\n            transform: rotate(27deg);\n    border-width: 29px; }\n  75% {\n    border-width: 15px; }\n  100% {\n    border-width: 29px; } }\n\n@-webkit-keyframes style_cssload-arc_b7427cbe {\n  0% {\n    border-width: 29px; }\n  25% {\n    border-width: 15px; }\n  50% {\n    border-width: 29px; }\n  75% {\n    border-width: 15px; }\n  100% {\n    border-width: 29px; } }\n\n.style_test_314a14ab {\n  color: rebeccapurple; }\n", ""]);
-
-// exports
-exports.locals = {
-	"Loading": "style_Loading_7dab7dd1",
-	"cube": "style_cube_86d73d9d",
-	"cube-2d": "style_cube-2d_9616aed9",
-	"Loading-arc": "style_Loading-arc_460e77e2",
-	"Loading-cube": "style_Loading-cube_9be2615e",
-	"cssload-arc": "style_cssload-arc_b7427cbe",
-	"test": "style_test_314a14ab"
 };
 
 /***/ }),
@@ -1157,7 +1177,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(16);
+var _reactRouterDom = __webpack_require__(15);
 
 var _style = __webpack_require__("./client/component/Nav/style.scss");
 
@@ -1197,15 +1217,6 @@ var Nav = function Nav(props) {
           _reactRouterDom.Link,
           { to: '/about' },
           'about'
-        )
-      ),
-      _react2.default.createElement(
-        'li',
-        null,
-        _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/docs' },
-          'docs'
         )
       )
     )
@@ -1255,6 +1266,10 @@ var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
 
 var _reactRedux = __webpack_require__(2);
 
+var _windowOrGlobal = __webpack_require__(22);
+
+var _windowOrGlobal2 = _interopRequireDefault(_windowOrGlobal);
+
 var _BlackBox = __webpack_require__("./client/component/BlackBox/index.js");
 
 var _BlackBox2 = _interopRequireDefault(_BlackBox);
@@ -1277,13 +1292,41 @@ var About = function (_Component) {
   function About() {
     _classCallCheck(this, About);
 
-    return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this));
+
+    _this.state = {
+      floatStyle: {
+        transform: 'translateX(0) translateY(0) rotate(0)'
+      }
+    };
+    _this.width = Math.max(_windowOrGlobal2.default.innerWidth);
+    _this.height = Math.max(_windowOrGlobal2.default.innerHeight);
+    _this.floatBox = _this.floatBox.bind(_this);
+    return _this;
   }
 
   _createClass(About, [{
-    key: 'flee',
-    value: function flee(e) {
-      e.target.style.transform = 'translate(' + e.clientX / 3 + 'px, ' + e.clientY / 3 + 'px)';
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      if (this.width > 1025) {
+        _windowOrGlobal2.default.document.addEventListener("mousemove", this.floatBox);
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      if (this.width > 1025) {
+        _windowOrGlobal2.default.document.removeEventListener("mousemove", this.floatBox);
+      }
+    }
+  }, {
+    key: 'floatBox',
+    value: function floatBox(e) {
+      this.setState({
+        floatStyle: {
+          transform: 'translateX(' + (e.clientX - this.width / 2) + 'px) translateY(' + (e.clientY - this.height / 2) + 'px) rotate(' + (e.clientX - this.width / 2) + 'deg)'
+        }
+      });
     }
   }, {
     key: 'render',
@@ -1296,10 +1339,10 @@ var About = function (_Component) {
           title: 'About' }),
         _react2.default.createElement(
           'div',
-          { className: _style2.default.flee },
+          { className: _style2.default.floatBox, style: this.state.floatStyle },
           _react2.default.createElement(
             _BlackBox2.default,
-            { onMouseEnter: this.flee },
+            null,
             _react2.default.createElement(
               'h2',
               null,
@@ -1364,303 +1407,12 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".style_bg_dc84fffa {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: -1;\n  box-shadow: inset 0 -100px 250px 50px rgba(0, 0, 0, 0.3);\n  background: red;\n  overflow: hidden; }\n", ""]);
+exports.push([module.i, ".style_bg_dc84fffa {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: -1;\n  box-shadow: inset 0 -100px 250px 50px rgba(0, 0, 0, 0.3);\n  background: red;\n  overflow: hidden; }\n\n.style_floatBox_0d878827 {\n  position: relative;\n  transition: ease-out 20s;\n  height: 100%;\n  width: 100%; }\n", ""]);
 
 // exports
 exports.locals = {
-	"bg": "style_bg_dc84fffa"
-};
-
-/***/ }),
-
-/***/ "./client/container/Docs/index.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactHelmet = __webpack_require__(1);
-
-var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
-
-var _reactRedux = __webpack_require__(2);
-
-var _reactMarkdownToHtml = __webpack_require__(15);
-
-var _reactMarkdownToHtml2 = _interopRequireDefault(_reactMarkdownToHtml);
-
-var _BlackBox = __webpack_require__("./client/component/BlackBox/index.js");
-
-var _BlackBox2 = _interopRequireDefault(_BlackBox);
-
-var _Loading = __webpack_require__("./client/component/Loading/index.js");
-
-var _Loading2 = _interopRequireDefault(_Loading);
-
-var _style = __webpack_require__("./client/container/Docs/style.scss");
-
-var _style2 = _interopRequireDefault(_style);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Docs = function (_Component) {
-  _inherits(Docs, _Component);
-
-  function Docs() {
-    _classCallCheck(this, Docs);
-
-    var _this = _possibleConstructorReturn(this, (Docs.__proto__ || Object.getPrototypeOf(Docs)).call(this));
-
-    _this.state = {
-      title: 'Isomorphic Javascript App'
-    };
-    return _this;
-  }
-
-  _createClass(Docs, [{
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      var showHide = function showHide(opt) {
-        _this2.refs.loading.style.opacity = "1";
-        setTimeout(function () {
-          _this2.refs.markdown.style.overflowY = "auto";
-          _this2.refs[opt.opt].style.display = "block";
-          _this2.refs.loading.style.opacity = "0";
-          setTimeout(function () {
-            return _this2.refs[opt.opt].style.opacity = "1";
-          }, 500);
-        }, 2000);
-        return opt.rest.map(function (index) {
-          _this2.refs.markdown.style.overflowY = "hidden";
-          _this2.refs[index].style.transform = "translateX(110%)";
-          setTimeout(function () {
-            _this2.refs[opt.opt].style.opacity = "0";
-            setTimeout(function () {
-              return _this2.refs[index].style.display = "none";
-            }, 500);
-            _this2.refs[opt.opt].style.transform = "translateX(0)";
-          }, 1000);
-        });
-      };
-
-      var options = function options(opt, optLength) {
-        var rest = [];
-        for (var i = 1; i <= optLength; i++) {
-          if (i === opt) {
-            continue;
-          }
-          rest.push("doc-" + i);
-        }
-        return {
-          opt: "doc-" + opt,
-          rest: rest
-        };
-      };
-
-      return _react2.default.createElement(
-        'div',
-        { className: _style2.default.bg },
-        _react2.default.createElement(_reactHelmet2.default, {
-          meta: [{ name: "description", content: "Docs" }],
-          title: 'Docs' }),
-        _react2.default.createElement(
-          _BlackBox2.default,
-          null,
-          _react2.default.createElement(
-            'ul',
-            { className: _style2.default.navOpt },
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'button',
-                { onClick: showHide.bind(this, options(1, 7)) },
-                'Overview'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'button',
-                { onClick: showHide.bind(this, options(2, 7)) },
-                'Components'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'button',
-                { onClick: showHide.bind(this, options(3, 7)) },
-                'Home Container'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'button',
-                { onClick: showHide.bind(this, options(4, 7)) },
-                'About Container'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'button',
-                { onClick: showHide.bind(this, options(5, 7)) },
-                'NotFound Container'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'button',
-                { onClick: showHide.bind(this, options(6, 7)) },
-                'Router Configs & Combine Reducers'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'button',
-                { onClick: showHide.bind(this, options(7, 7)) },
-                'App Booster'
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'h2',
-            null,
-            this.state.title
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: _style2.default.markdown, ref: 'markdown' },
-            _react2.default.createElement(
-              'div',
-              { className: _style2.default.loading, ref: 'loading' },
-              _react2.default.createElement(_Loading2.default, null)
-            ),
-            _react2.default.createElement(
-              'div',
-              { ref: 'doc-1' },
-              _react2.default.createElement(_reactMarkdownToHtml2.default, { src: '/markdown/overview.md' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { ref: 'doc-2' },
-              _react2.default.createElement(_reactMarkdownToHtml2.default, { src: '/markdown/dumbComponent.md' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { ref: 'doc-3' },
-              _react2.default.createElement(_reactMarkdownToHtml2.default, { src: '/markdown/smartComponent.md' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { ref: 'doc-4' },
-              _react2.default.createElement(_reactMarkdownToHtml2.default, { src: '/markdown/smartComponent2.md' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { ref: 'doc-5' },
-              _react2.default.createElement(_reactMarkdownToHtml2.default, { src: '/markdown/smartComponent3.md' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { ref: 'doc-6' },
-              _react2.default.createElement(_reactMarkdownToHtml2.default, { src: '/markdown/routerandreducer.md' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { ref: 'doc-7' },
-              _react2.default.createElement(_reactMarkdownToHtml2.default, { src: '/markdown/app.md' })
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return Docs;
-}(_react.Component);
-
-exports.default = (0, _reactRedux.connect)(function (store) {
-  return {};
-})(Docs);
-
-/***/ }),
-
-/***/ "./client/container/Docs/reducer.js":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports.default = function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments[1];
-
-  var immutable = (0, _immutee2.default)(state);
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
-
-var _immutee = __webpack_require__(3);
-
-var _immutee2 = _interopRequireDefault(_immutee);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var initialState = {};
-
-/***/ }),
-
-/***/ "./client/container/Docs/style.scss":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")();
-// imports
-
-
-// module
-exports.push([module.i, ".style_bg_e0a271bc {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: -1;\n  box-shadow: inset 0 -100px 250px 50px rgba(0, 0, 0, 0.3);\n  background: green;\n  overflow: hidden; }\n\n.style_loading_fab70045 {\n  position: absolute;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  margin: auto;\n  width: 100%;\n  opacity: 0;\n  /*pointer-events: none;*/\n  transition: ease-out 1s; }\n\n.style_markdown_7e493797 {\n  position: relative;\n  background: #FFF;\n  text-align: left;\n  padding: 10px;\n  height: 300px;\n  overflow-y: auto;\n  overflow-x: hidden; }\n  .style_markdown_7e493797 > div:not(.style_loading_fab70045) {\n    -webkit-transform: translateX(0);\n        -ms-transform: translateX(0);\n            transform: translateX(0);\n    transition: ease-out 1s; }\n  .style_markdown_7e493797 h1,\n  .style_markdown_7e493797 h2,\n  .style_markdown_7e493797 h3,\n  .style_markdown_7e493797 h4 {\n    font-size: 18px; }\n  .style_markdown_7e493797 pre {\n    padding: 10px;\n    background: #fcf7d1;\n    font-size: 15px;\n    color: #777;\n    white-space: pre-wrap;\n    /* css-3 */\n    white-space: -moz-pre-wrap;\n    /* Mozilla, since 1999 */\n    white-space: -pre-wrap;\n    /* Opera 4-6 */\n    white-space: -o-pre-wrap;\n    /* Opera 7 */\n    word-wrap: break-word;\n    /* Internet Explorer 5.5+ */ }\n    .style_markdown_7e493797 pre code {\n      background: none; }\n  .style_markdown_7e493797 code {\n    display: inline-block;\n    padding: 5px;\n    background: #EEE; }\n  .style_markdown_7e493797 p {\n    color: #111; }\n\n.style_navOpt_f8c6ad80 {\n  border-radius: 10px;\n  overflow: hidden;\n  padding-left: 0;\n  width: 100%;\n  list-style: none;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-align-items: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n  -webkit-align-content: stretch;\n      -ms-flex-line-pack: stretch;\n          align-content: stretch;\n  position: absolute;\n  left: 0;\n  top: -45px; }\n  .style_navOpt_f8c6ad80 li button {\n    height: 100%;\n    border: none;\n    background: #000;\n    color: #FFF;\n    padding: 10px;\n    cursor: pointer;\n    font-size: 10px; }\n    .style_navOpt_f8c6ad80 li button:hover, .style_navOpt_f8c6ad80 li button:focus, .style_navOpt_f8c6ad80 li button:active {\n      background: #FFF;\n      color: #111; }\n", ""]);
-
-// exports
-exports.locals = {
-	"bg": "style_bg_e0a271bc",
-	"loading": "style_loading_fab70045",
-	"markdown": "style_markdown_7e493797",
-	"navOpt": "style_navOpt_f8c6ad80"
+	"bg": "style_bg_dc84fffa",
+	"floatBox": "style_floatBox_0d878827"
 };
 
 /***/ }),
@@ -1952,7 +1704,7 @@ var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
 
 var _reactRedux = __webpack_require__(2);
 
-var _windowOrGlobal = __webpack_require__(23);
+var _windowOrGlobal = __webpack_require__(22);
 
 var _windowOrGlobal2 = _interopRequireDefault(_windowOrGlobal);
 
@@ -2495,13 +2247,9 @@ var _reducer7 = __webpack_require__("./client/container/About/reducer.js");
 
 var _reducer8 = _interopRequireDefault(_reducer7);
 
-var _reducer9 = __webpack_require__("./client/container/Docs/reducer.js");
+var _reducer9 = __webpack_require__("./client/container/NotFound/reducer.js");
 
 var _reducer10 = _interopRequireDefault(_reducer9);
-
-var _reducer11 = __webpack_require__("./client/container/NotFound/reducer.js");
-
-var _reducer12 = _interopRequireDefault(_reducer11);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2510,8 +2258,7 @@ exports.default = {
   homeState: _reducer4.default,
   sampleState: _reducer6.default,
   aboutState: _reducer8.default,
-  docsState: _reducer10.default,
-  notFoundState: _reducer12.default
+  notFoundState: _reducer10.default
 };
 
 /***/ }),
@@ -2538,10 +2285,6 @@ var _About = __webpack_require__("./client/container/About/index.js");
 
 var _About2 = _interopRequireDefault(_About);
 
-var _Docs = __webpack_require__("./client/container/Docs/index.js");
-
-var _Docs2 = _interopRequireDefault(_Docs);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = [{
@@ -2556,10 +2299,6 @@ exports.default = [{
   path: '/about',
   exact: true,
   component: _About2.default
-}, {
-  path: '/docs',
-  exact: true,
-  component: _Docs2.default
 }];
 
 /***/ }),
@@ -2737,7 +2476,7 @@ var _cors = __webpack_require__(9);
 
 var _cors2 = _interopRequireDefault(_cors);
 
-var _serveFavicon = __webpack_require__(22);
+var _serveFavicon = __webpack_require__(21);
 
 var _serveFavicon2 = _interopRequireDefault(_serveFavicon);
 
@@ -3077,35 +2816,35 @@ module.exports = require("react-dom/server");
 /***/ 15:
 /***/ (function(module, exports) {
 
-module.exports = require("react-markdown-to-html");
+module.exports = require("react-router-dom");
 
 /***/ }),
 
 /***/ 16:
 /***/ (function(module, exports) {
 
-module.exports = require("react-router-dom");
+module.exports = require("redux");
 
 /***/ }),
 
 /***/ 17:
 /***/ (function(module, exports) {
 
-module.exports = require("redux");
+module.exports = require("redux-logger");
 
 /***/ }),
 
 /***/ 18:
 /***/ (function(module, exports) {
 
-module.exports = require("redux-logger");
+module.exports = require("redux-promise-middleware");
 
 /***/ }),
 
 /***/ 19:
 /***/ (function(module, exports) {
 
-module.exports = require("redux-promise-middleware");
+module.exports = require("redux-thunk");
 
 /***/ }),
 
@@ -3119,32 +2858,25 @@ module.exports = require("react-redux");
 /***/ 20:
 /***/ (function(module, exports) {
 
-module.exports = require("redux-thunk");
+module.exports = require("redux-universal");
 
 /***/ }),
 
 /***/ 21:
 /***/ (function(module, exports) {
 
-module.exports = require("redux-universal");
+module.exports = require("serve-favicon");
 
 /***/ }),
 
 /***/ 22:
 /***/ (function(module, exports) {
 
-module.exports = require("serve-favicon");
-
-/***/ }),
-
-/***/ 23:
-/***/ (function(module, exports) {
-
 module.exports = require("window-or-global");
 
 /***/ }),
 
-/***/ 24:
+/***/ 23:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__("./node_modules/webpack/hot/poll.js?1000");

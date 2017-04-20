@@ -1,7 +1,6 @@
 import Home from "./container/Home";
 import Sample from "./container/Sample";
 import About from "./container/About";
-import Docs from "./container/Docs";
 
 export default [{
   path: '/',
@@ -15,8 +14,4 @@ export default [{
   path: '/about',
   exact: true,
   component: About,
-}, {
-  path: '/docs',
-  exact: true,
-  component: Docs,
 }];

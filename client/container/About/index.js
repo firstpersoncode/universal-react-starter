@@ -1,13 +1,43 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import root from 'window-or-global';
 import BlackBox from '../../component/BlackBox';
 import styles from './style.scss';
 
 class About extends Component {
-  flee(e) {
-    e.target.style.transform = `translate(${e.clientX / 3}px, ${e.clientY / 3}px)`
+  constructor() {
+    super();
+    this.state = {
+      floatStyle: {
+        transform: 'translateX(0) translateY(0) rotate(0)',
+      }
+    };
+    this.width = Math.max(root.innerWidth);
+    this.height = Math.max(root.innerHeight);
+    this.floatBox = this.floatBox.bind(this);
   }
+
+  componentDidMount() {
+    if (this.width > 1025) {
+      root.document.addEventListener("mousemove", this.floatBox)
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.width > 1025) {
+      root.document.removeEventListener("mousemove", this.floatBox);
+    }
+  }
+
+  floatBox(e) {
+    this.setState({
+      floatStyle: {
+        transform: `translateX(${e.clientX - this.width / 2}px) translateY(${e.clientY - this.height / 2}px) rotate(${e.clientX - this.width / 2}deg)`
+      }
+    })
+  }
+
   render() {
     return (
       <div class={styles.bg}>
@@ -16,8 +46,8 @@ class About extends Component {
             {name: "description", content: "About"}
           ]}
           title="About" />
-        <div class={styles.flee}>
-          <BlackBox onMouseEnter={this.flee}>
+        <div class={styles.floatBox} style={this.state.floatStyle}>
+          <BlackBox>
             <h2>Isomorphic Javascript App</h2>
             <p>Copyright © 2017 Nasser</p>
           </BlackBox>

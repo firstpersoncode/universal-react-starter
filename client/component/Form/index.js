@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './style.scss';
+
 class Form extends Component {
   render() {
     return (
