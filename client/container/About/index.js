@@ -47,7 +47,7 @@ class About extends Component {
         </Helmet>
         <div class={styles.floatBox} style={this.state.floatStyle}>
           <BlackBox>
-            <h2>Isomorphic Javascript App</h2>
+            <h2>Universal ReactJS Starter</h2>
             <p>Copyright © 2017 Nasser</p>
           </BlackBox>
         </div>

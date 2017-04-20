@@ -20,9 +20,9 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a07a049b4a0883f8a5c2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "14d6713373a3ce6d3435"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
-/******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParentsTemp = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -34,14 +34,16 @@
 /******/ 				if(installedModules[request]) {
 /******/ 					if(installedModules[request].parents.indexOf(moduleId) < 0)
 /******/ 						installedModules[request].parents.push(moduleId);
-/******/ 				} else hotCurrentParents = [moduleId];
+/******/ 				} else {
+/******/ 					hotCurrentParents = [moduleId];
+/******/ 					hotCurrentChildModule = request;
+/******/ 				}
 /******/ 				if(me.children.indexOf(request) < 0)
 /******/ 					me.children.push(request);
 /******/ 			} else {
 /******/ 				console.warn("[HMR] unexpected require(" + request + ") from disposed module " + moduleId);
 /******/ 				hotCurrentParents = [];
 /******/ 			}
-/******/ 			hotMainModule = false;
 /******/ 			return __webpack_require__(request);
 /******/ 		};
 /******/ 		var ObjectFactory = function ObjectFactory(name) {
@@ -57,34 +59,31 @@
 /******/ 			};
 /******/ 		};
 /******/ 		for(var name in __webpack_require__) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(__webpack_require__, name)) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(__webpack_require__, name) && name !== "e") {
 /******/ 				Object.defineProperty(fn, name, ObjectFactory(name));
 /******/ 			}
 /******/ 		}
-/******/ 		Object.defineProperty(fn, "e", {
-/******/ 			enumerable: true,
-/******/ 			value: function(chunkId) {
-/******/ 				if(hotStatus === "ready")
-/******/ 					hotSetStatus("prepare");
-/******/ 				hotChunksLoading++;
-/******/ 				return __webpack_require__.e(chunkId).then(finishChunkLoading, function(err) {
-/******/ 					finishChunkLoading();
-/******/ 					throw err;
-/******/ 				});
+/******/ 		fn.e = function(chunkId) {
+/******/ 			if(hotStatus === "ready")
+/******/ 				hotSetStatus("prepare");
+/******/ 			hotChunksLoading++;
+/******/ 			return __webpack_require__.e(chunkId).then(finishChunkLoading, function(err) {
+/******/ 				finishChunkLoading();
+/******/ 				throw err;
+/******/ 			});
 /******/ 	
-/******/ 				function finishChunkLoading() {
-/******/ 					hotChunksLoading--;
-/******/ 					if(hotStatus === "prepare") {
-/******/ 						if(!hotWaitingFilesMap[chunkId]) {
-/******/ 							hotEnsureUpdateChunk(chunkId);
-/******/ 						}
-/******/ 						if(hotChunksLoading === 0 && hotWaitingFiles === 0) {
-/******/ 							hotUpdateDownloaded();
-/******/ 						}
+/******/ 			function finishChunkLoading() {
+/******/ 				hotChunksLoading--;
+/******/ 				if(hotStatus === "prepare") {
+/******/ 					if(!hotWaitingFilesMap[chunkId]) {
+/******/ 						hotEnsureUpdateChunk(chunkId);
+/******/ 					}
+/******/ 					if(hotChunksLoading === 0 && hotWaitingFiles === 0) {
+/******/ 						hotUpdateDownloaded();
 /******/ 					}
 /******/ 				}
 /******/ 			}
-/******/ 		});
+/******/ 		};
 /******/ 		return fn;
 /******/ 	}
 /******/ 	
@@ -96,7 +95,7 @@
 /******/ 			_selfAccepted: false,
 /******/ 			_selfDeclined: false,
 /******/ 			_disposeHandlers: [],
-/******/ 			_main: hotMainModule,
+/******/ 			_main: hotCurrentChildModule !== moduleId,
 /******/ 	
 /******/ 			// Module API
 /******/ 			active: true,
@@ -149,7 +148,7 @@
 /******/ 			//inherit from previous dispose call
 /******/ 			data: hotCurrentModuleData[moduleId]
 /******/ 		};
-/******/ 		hotMainModule = true;
+/******/ 		hotCurrentChildModule = undefined;
 /******/ 		return hot;
 /******/ 	}
 /******/ 	
@@ -187,7 +186,6 @@
 /******/ 				hotSetStatus("idle");
 /******/ 				return null;
 /******/ 			}
-/******/ 	
 /******/ 			hotRequestedFilesMap = {};
 /******/ 			hotWaitingFilesMap = {};
 /******/ 			hotAvailableFilesMap = update.c;
@@ -604,9 +602,9 @@
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -1197,7 +1195,7 @@ var Nav = function Nav(props) {
         null,
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/universal/index.html' },
+          { to: '/' },
           'home'
         )
       ),
@@ -1206,7 +1204,7 @@ var Nav = function Nav(props) {
         null,
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/universal/sample.html' },
+          { to: '/sample' },
           'sample'
         )
       ),
@@ -1215,7 +1213,7 @@ var Nav = function Nav(props) {
         null,
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/universal/about.html' },
+          { to: '/about' },
           'about'
         )
       )
@@ -1353,7 +1351,7 @@ var About = function (_Component) {
             _react2.default.createElement(
               'h2',
               null,
-              'Isomorphic Javascript App'
+              'Universal ReactJS Starter'
             ),
             _react2.default.createElement(
               'p',
@@ -1481,7 +1479,6 @@ var Home = function (_Component) {
           ),
           _react2.default.createElement('link', { rel: 'canonical', href: 'https://github.com/firstpersoncode/universal-react-starter' })
         ),
-        '\\',
         _react2.default.createElement(
           'div',
           { className: _style2.default.header },
@@ -2133,8 +2130,7 @@ var Sample = function (_Component) {
   _createClass(Sample, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      // if (!this.props.smallHeader.length)
-      //   this.props.dispatch(fetchHeaders())
+      if (!this.props.smallHeader.length) this.props.dispatch((0, _actions.fetchHeaders)());
     }
   }, {
     key: 'handlePreview',
@@ -2320,15 +2316,15 @@ var _About2 = _interopRequireDefault(_About);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = [{
-  path: '/universal/index.html',
+  path: '/',
   exact: true,
   component: _Home2.default
 }, {
-  path: '/universal/sample.html',
+  path: '/sample',
   exact: true,
   component: _Sample2.default
 }, {
-  path: '/universal/about.html',
+  path: '/about',
   exact: true,
   component: _About2.default
 }];

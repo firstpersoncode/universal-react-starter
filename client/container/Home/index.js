@@ -10,7 +10,7 @@ class Home extends Component {
         <Helmet>
           <title>Home</title>
           <link rel="canonical" href='https://github.com/firstpersoncode/universal-react-starter' />
-        </Helmet>\
+        </Helmet>
         <div class={styles.header}>
           <h1>Universal ReactJS Starter</h1>
           <h4>Packed with</h4>
