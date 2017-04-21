@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 
 import {
@@ -11,11 +11,10 @@ class {{properCase name}} extends Component {
   render() {
     return (
       <div class={styles['{{properCase name}}']}>
-        <Helmet
-          meta={[
-            {name: "description", content: "Isomorphic javascript app"}
-          ]}
-          title="{{properCase name}}" />
+        <Helmet>
+          <meta name="description" content="Description of {{properCase name}}" />
+          <title>{{properCase name}}</title>
+        </Helmet>
         <h2>You see me now</h2>
         {/* content ... */}
 

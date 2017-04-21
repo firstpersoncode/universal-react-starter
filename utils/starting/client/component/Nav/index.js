@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './style.scss';
+
 const Nav = (props) => {
   return (
     <nav class={styles.nav}>

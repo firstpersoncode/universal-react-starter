@@ -11,13 +11,15 @@ render(
   document.getElementById('root')
 );
 
-if (module.hot) {
-  module.hot.accept("./App", () => {
-    render(
-      <AppContainer>
-        <App />
-      </AppContainer>,
-      document.getElementById("root"),
-    );
-  });
+if (process.env.NODE_ENV === "development") {
+  if (module.hot) {
+    module.hot.accept("./App", () => {
+      render(
+        <AppContainer>
+          <App />
+        </AppContainer>,
+        document.getElementById("root"),
+      );
+    });
+  }
 }

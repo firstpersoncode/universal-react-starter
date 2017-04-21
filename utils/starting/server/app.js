@@ -7,14 +7,14 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import favicon from 'serve-favicon';
 
-
 import db from './db';
 import index from './source/index.js';
 
+// connect database -- uncomment to use database
+// db('mongodb://localhost/MyApp');
+
+// config
 const app = express();
-
-// db('mongodb://localhost/basicIsomorphic');
-
 app.use("*", cors());
 app.use(cors());
 app.use(bodyParser.json());
@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === "production") {
   fse.copy(path.resolve(process.cwd(), './.build/style.css'), path.resolve(process.cwd(), './public/stylesheets/style.css'));
 }
 
+// render view
 app.get("*", index);
-
 
 export default app;

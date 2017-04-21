@@ -1,5 +1,5 @@
 import React from "react";
-import { StaticRouter as Router } from 'react-router';
+import { StaticRouter as Router, matchPath } from 'react-router';
 import { Provider } from 'react-redux';
 import { renderToString } from "react-dom/server";
 import Helm from 'react-helmet';
@@ -11,11 +11,21 @@ import routes from "../../client/routes";
 
 export default (req, res) => {
 
-  const routeMatch = routes.filter(route => route.path === req.url).pop();
+  // grab route object from ../../client/routes that match with req.url
+  const match = routes.reduce((acc, route) => matchPath(req.url, route, { exact: true }) || acc, null);
+
   const store = configureStore();
   const context = {};
   let html;
-  let body;
+  let body = (
+    <Provider store={store}>
+      <Router
+        location={req.url}
+        context={context}>
+        <Layout />
+      </Router>
+    </Provider>
+  );
 
   if (process.env.NODE_ENV === "development") {
     html = ({ body, head, initialState }) => {
@@ -29,10 +39,10 @@ export default (req, res) => {
             <link rel="stylesheet" href="http://localhost:50044/style.css" />
             ${head.meta.toString()}
             ${head.link.toString()}
+            ${head.script.toString()}
           </head>
           <body>
             <div id="root">${body}</div>
-            ${head.script.toString()}
             <script>window.INITIAL_STATE = ${JSON.stringify(initialState)};</script>
             <script src="http://localhost:50044/bundle.js"></script>
           </body>
@@ -50,10 +60,10 @@ export default (req, res) => {
             <link rel="stylesheet" href="stylesheets/style.css" />
             ${head.meta.toString()}
             ${head.link.toString()}
+            ${head.script.toString()}
           </head>
           <body>
             <div id="root">${body}</div>
-            ${head.script.toString()}
             <script>window.INITIAL_STATE = ${JSON.stringify(initialState)};</script>
             <script src="javascripts/bundle.js"></script>
           </body>
@@ -61,29 +71,28 @@ export default (req, res) => {
     };
   }
 
-  if (!routeMatch) {
-    res.status(404);
-
-    body = renderToString(
-      <h1>page not found ...</h1>
-    )
-  } else {
-    res.status(200);
-
-    body = renderToString(
-      <Provider store={store}>
-        <Router
-          location={routeMatch.path}
-          context={context}>
-          <Layout />
-        </Router>
-      </Provider>
-    );
-  }
-
-  res.send(html({
-    body,
-    head: Helm.rewind(),
-    initialState: store.getState()
-  }))
+  // Async initialState reducer and render the view
+  store.renderUniversal(renderToString, body)
+  .then(({ output }) => {
+    const state = store.getState();
+    if (!match) {
+      res.status(404).send(html({
+        body: output,
+        head: Helm.rewind(),
+        initialState: state
+      }));
+    } else {
+      res.status(200).send(html({
+        body: output,
+        head: Helm.rewind(),
+        initialState: state
+      }));
+    }
+  })
+  .catch(({ output, error }) => {
+    console.warn(error);
+    res.status(500).send(html({
+      body: error,
+    }));
+  })
 };
