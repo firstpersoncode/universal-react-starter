@@ -122,8 +122,8 @@ You can see the sample app with this script if you're not cleaning the project y
 npm start
 ```
 Before start the new project, you can use this script to remove the sample app, 
-this script will remove everything inside /client and /server directories,
-and generate the starting components and containers
+this script will remove everything inside `/client` and `/server` directories,
+and generate the starting `components` and `containers`
 ```shell
 npm run clean
 ```
