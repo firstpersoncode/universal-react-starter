@@ -25,10 +25,37 @@ class Home extends Component {
             <li><a href="https://github.com/diruuu/immutee" target="_blank">Immutee</a></li>
           </ul>
         </div>
-        <p class={styles.paragraph}>
-          modular sass + plop generator + hot reload + server side rendering !<br/>
-          Easy project structure, SEO friendly, fast performance, and easy maintain.
-        </p>
+        <div class={styles.wording}>
+          <div>
+            <div class={styles.paragraph}>
+              <h1>Simple starter-kit for universal React.js app, Using express.js for server-side, and mongoose.js for database. with react-router v4 server side rendering</h1>
+              <h2>Easy project structure, SEO friendly, fast performance, and easy to maintain.</h2>
+              <p>With modular sass + plop generator + hot reload + server side rendering !</p>
+              <h3>Let's render it on the server side so Google can crawl it !</h3>
+              <span>&#10095;</span>
+            </div>
+            <p>* Clone the project from GitHub</p>
+            <code>$ git clone https://github.com/firstpersoncode/universal-react-starter.git</code>
+            <p>* Install all dependencies</p>
+            <code>$ npm install</code>
+            <p>* start the development !<br/>
+            You can see the sample app with this script if you're not cleaning the project yet</p>
+            <code>$ npm start</code>
+            <p>* Before start the new project, you can use this script to remove the sample app, <br/>
+            this script will remove everything inside <i>/client</i> and <i>/server</i> directories,<br/>
+            and generate the starting components and containers ..
+            </p>
+            <code>npm run clean</code>
+            <p>* Use this script to bundle all the files</p>
+            <code>$ npm run build</code>
+            <p>* If you want to see your project in production environtment</p>
+            <code>$ npm run start:prod</code>
+            <p>* This Universal ReactJS Starter-kit is packed with plop generator, <br/>
+            you can generate component or container template using this script
+            </p>
+            <code>npm run generator</code>
+          </div>
+        </div>
       </div>
     );
   }

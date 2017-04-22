@@ -1,11 +1,18 @@
 .nav {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  bottom: 40px;
+  background: #222;
+  @media (min-width: 1025px) {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+    background: none;
+  }
   width: 100%;
 
   ul {
+    @media (max-width: 1025px) {
+      margin: 0;
+    }
     padding-left: 0;
   }
 

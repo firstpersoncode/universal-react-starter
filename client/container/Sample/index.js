@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from "react-helmet";
+import root from 'window-or-global';
 import { setHeader, fetchHeaders } from './actions';
 import Header from '../../component/Header';
 import Form from '../../component/Form';
@@ -34,21 +35,33 @@ class Sample extends Component {
   }
 
   render() {
-    return (
-      <div class={styles.bg}>
-        <Helmet>
-          <meta name="description" content="Universal ReactJS Starter Sample app" />
-          <title>Sample App</title>
-        </Helmet>
-        <Header header={this.state.preview} smallHeader={this.props.smallHeader} latestHeader={this.props.header} />
-        <BlackBox>
-          <Form
-            ref="form"
-            handlePreview={this.handlePreview}
-            handleSetHeader={this.handleSetHeader} />
-        </BlackBox>
-      </div>
-    );
+    if (Math.max(root.innerWidth) > 1025) {
+      return (
+        <div class={styles.bg}>
+          <Helmet>
+            <meta name="description" content="Universal ReactJS Starter Sample app" />
+            <title>Sample App</title>
+          </Helmet>
+          <Header header={this.state.preview} smallHeader={this.props.smallHeader} latestHeader={this.props.header} />
+          <BlackBox>
+            <Form
+              ref="form"
+              handlePreview={this.handlePreview}
+              handleSetHeader={this.handleSetHeader} />
+          </BlackBox>
+          <div class={styles.wording}>
+            <p>
+              View on the page source.. and you will see, everything being rendered on the server..<br/>
+              <i>* the page needs to be refreshed *</i>
+            </p>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <p>null</p>
+      );
+    }
   }
 }
 

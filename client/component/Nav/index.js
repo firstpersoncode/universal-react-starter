@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import root from 'window-or-global';
 import styles from './style.scss';
 
 const Nav = (props) => {
@@ -7,7 +8,7 @@ const Nav = (props) => {
     <nav class={styles.nav}>
       <ul>
         <li><Link to="/">home</Link></li>
-        <li><Link to="/sample">sample</Link></li>
+        {Math.max(root.innerWidth) > 1025 && (<li><Link to="/sample">sample</Link></li>)}
         <li><Link to="/about">about</Link></li>
       </ul>
     </nav>
