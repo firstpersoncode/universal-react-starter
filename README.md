@@ -10,9 +10,11 @@
 ## [Webpack v2](https://webpack.github.io/)
 ## [Immutee](https://github.com/diruuu/immutee)
 
-### modular sass + plop generator + hot reload + server side rendering !
+### Simple starter-kit for universal React.js app, Using express.js for server-side, and mongoose.js for database. with react-router v4 server side rendering
 
-#### Easy project structure, SEO friendly, fast performance, and easy maintain.
+#### Easy project structure, SEO friendly, fast performance, and easy to maintain.
+
+##### with modular sass + plop generator + hot reload + server side rendering !
 ---
 
 ### Let's get started
@@ -106,25 +108,39 @@ container
 
 ## START development
 
-development:
+Clone the project from GitHub
+```shell
+git clone https://github.com/firstpersoncode/universal-react-starter.git
+```
+Install all dependencies
+```shell
+npm install
+```
+start the development !
+You can see the sample app with this script if you're not cleaning the project yet
 ```shell
 npm start
 ```
-build:
+Before start the new project, you can use this script to remove the sample app, 
+this script will remove everything inside /client and /server directories,
+and generate the starting components and containers
+```shell
+npm run clean
+```
+Bundle all the files,
+it will create the `style.css` for all the style files, `bundle.js` for the client app, and `app.js` for the server app.
+the output directory will be in `/.build` directory.
 ```shell
 npm run build
 ```
-production:
+If you want to see your project in production environtment
 ```shell
 npm run start:prod
 ```
-generator:
+This Universal ReactJS Starter-kit is packed with plop generator, 
+you can generate component or container template using this script
 ```shell
 npm run generator
-```
-clean project:
-```shell
-npm run clean
 ```
 
 > *Hit me up if you have any questions regarding to the project > mail@thefirstpersoncode.com*
