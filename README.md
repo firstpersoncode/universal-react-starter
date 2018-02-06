@@ -143,4 +143,4 @@ you can generate component or container template using this script
 npm run generator
 ```
 
-> *Hit me up if you have any questions regarding to the project > mail@thefirstpersoncode.com*
+> *Hit me up if you have any questions regarding to the project > nasser.maronie@gmail.com*
